@@ -1,0 +1,27 @@
+{
+    "description": "Change left_shift+escape to tilde.",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "escape",
+                "modifiers": {
+                    "mandatory": [
+                        "left_shift"
+                    ],
+                    "optional": [
+                        "any"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "grave_accent_and_tilde",
+                    "modifiers": [
+                        "left_shift"
+                    ]
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
