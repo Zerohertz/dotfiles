@@ -11,9 +11,17 @@ plugins=(
     zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+OS=$(uname)
+if [[ "$OS" == "Linux" ]]; then
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
+elif [[ "$OS" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
