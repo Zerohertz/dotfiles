@@ -62,8 +62,10 @@ alias exd="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
 alias rmi="docker image prune -a"
 
 # ----------------------- K8S ----------------------- #
-if command -v kubectl &> /dev/null; then
+if command -v kubeadm &> /dev/null; then
     source <(kubeadm completion zsh)
+fi
+if command -v kubectl &> /dev/null; then
     source <(kubectl completion zsh)
     alias k="kubectl"
     alias wk="watch kubectl"
