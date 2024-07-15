@@ -39,7 +39,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # ----------------------- ZSH ----------------------- #
-export SHELL=/usr/bin/zsh
+export SHELL=/bin/zsh
 export EDITOR="nvim"
 
 # ----------------------- GPG ----------------------- #
@@ -81,8 +81,9 @@ fi
 export PATH=$PATH:$HOME/.local/bin
 
 # ----------------------- Go ----------------------- #
-export GOROOT=/usr/local/go
-export PATH=$GOROOT/bin:$PATH
+export GOROOT=$(go env GOROOT)
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias gg="go run main.go"
 
 # ----------------------- JAVA ----------------------- #
