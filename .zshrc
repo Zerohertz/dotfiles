@@ -86,8 +86,14 @@ export PATH=$GOROOT/bin:$PATH
 alias gg="go run main.go"
 
 # ----------------------- JAVA ----------------------- #
-export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
-export PATH=$JAVA_HOME/bin:$PATH
+if [[ "$OS" == "Linux" ]]; then
+    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+    export PATH=$JAVA_HOME/bin:$PATH
+elif [[ "$OS" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+fi
 alias jj="java Main.java"
 
 # ----------------------- NODE ----------------------- #
