@@ -17,7 +17,7 @@ tmux:
 nvim:
 	@rm -rf ${HOME}/.config/nvim
 	@ln -sf ${PWD}/.config/nvim ${HOME}/.config/nvim
-	@cd ${HOME}/.config/nvim && git switch $$(uname)
+	@cd ${HOME}/.config/nvim && git switch main
 
 .PHONY: kitty
 kitty:
