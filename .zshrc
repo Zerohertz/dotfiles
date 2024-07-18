@@ -72,6 +72,7 @@ fi
 if command -v kubectl &> /dev/null; then
     source <(kubectl completion zsh)
     alias k="kubectl"
+    alias ku="kubectl config use-context"
     alias wk="watch kubectl"
     alias kg="kubectl get"
     alias kgp="kubectl get po"
