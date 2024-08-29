@@ -12,7 +12,7 @@ zsh:
 ifneq ($(USER), root)
 	@sudo rm -rf $(ROOT_HOME)/.oh-my-zsh
 	@sudo cp -r $(HOME)/.oh-my-zsh $(ROOT_HOME)/.oh-my-zsh
-	@sudo cp -r $(HOME)/.cache/gitstatus $(ROOT_HOME)/.cache/gitstatus
+	@sudo mkdir -p $(ROOT_HOME)/.cache && sudo cp -r $(HOME)/.cache/gitstatus $(ROOT_HOME)/.cache/gitstatus
 endif
 
 .PHONY: p10k
