@@ -25,14 +25,14 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/zerohertz/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/zerohertz/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/zerohertz/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/zerohertz/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/zerohertz/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/zerohertz/miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/zerohertz/anaconda3/bin:$PATH"
+        export PATH="/home/zerohertz/miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -64,6 +64,13 @@ dev() {
 }
 alias exd="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
 alias rmi="docker image prune -a"
+# k8s_build() {
+#     local image_name="$1"
+#     docker build -t "$image_name" .
+#     docker save -o "$image_name".tar "$image_name"
+#     sudo ctr -n k8s.io i import "$image_name".tar
+#     sudo ctr -n k8s.io i ls | grep "$image_name"
+# }
 
 # ----------------------- K8S ----------------------- #
 if command -v kubeadm &> /dev/null; then
@@ -133,5 +140,7 @@ fi
 
 # ----------------------- SDKMAN ----------------------- #
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+if [[ $EUID -ne 0 ]]; then
+    export SDKMAN_DIR="$HOME/.sdkman"
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
