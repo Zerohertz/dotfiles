@@ -33,6 +33,9 @@ nvim:
 ifneq ($(USER), root)
 	@sudo mkdir -p $(ROOT_HOME)/.config && sudo rm -rf $(ROOT_HOME)/.config/nvim
 	@sudo ln -sf $(PWD)/.config/nvim $(ROOT_HOME)/.config/nvim
+	@mkdir -p $(HOME)/.cache/nvim $(HOME)/.local/share/nvim
+	@sudo mkdir -p $(ROOT_HOME)/.cache && sudo ln -sf $(HOME)/.cache/nvim $(ROOT_HOME)/.cache
+	@sudo mkdir -p $(ROOT_HOME)/.local/share && sudo ln -sf $(HOME)/.local/share/nvim $(ROOT_HOME)/.local/share
 endif
 	@cd $(PWD)/.config/nvim && git switch main
 
