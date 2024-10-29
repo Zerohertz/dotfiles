@@ -3,11 +3,7 @@ USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
 .PHONY: all
-all: git zsh p10k tmux nvim
-
-.PHONY: git
-git:
-	@git pull origin main --recurse-submodules
+all: zsh p10k tmux nvim
 
 .PHONY: zsh
 zsh:
@@ -41,7 +37,7 @@ ifneq ($(USER), root)
 	@sudo mkdir -p $(ROOT_HOME)/.cache && sudo ln -sf $(HOME)/.cache/nvim $(ROOT_HOME)/.cache
 	@sudo mkdir -p $(ROOT_HOME)/.local/share && sudo ln -sf $(HOME)/.local/share/nvim $(ROOT_HOME)/.local/share
 endif
-	@cd $(PWD)/.config/nvim && git switch main
+	@cd $(PWD)/.config/nvim && git switch main && git pull origin main
 
 .PHONY: kitty
 kitty:
