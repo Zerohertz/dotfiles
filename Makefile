@@ -3,7 +3,11 @@ USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
 .PHONY: all
-all: zsh p10k tmux nvim
+all: git zsh p10k tmux nvim
+
+.PHONY: git
+git:
+	@git pull origin main --recurse-submodules
 
 .PHONY: zsh
 zsh:
