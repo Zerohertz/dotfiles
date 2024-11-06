@@ -118,6 +118,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# ----------------------- Neovide ----------------------- #
+# nssh () {
+#     if [ -z "$1" ] || [ -z "$2" ]; then
+#         echo "Usage: nssh <remote_port> <local_port>"
+#         return 1
+#     fi
+#     bash -c "ssh -L ${2}:localhost:${1} zerohertz nvim --headless --listen localhost:${1}" &
+#     neovide --server=localhost:$2
+# }
+
 # ----------------------- ETC ----------------------- #
 if command -v kitten &> /dev/null; then
     alias ssh="kitten ssh"

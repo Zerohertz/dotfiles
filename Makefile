@@ -43,3 +43,8 @@ endif
 kitty:
 	@rm -rf $(HOME)/.config/kitty
 	@ln -sf $(PWD)/.config/kitty $(HOME)/.config/kitty
+
+.PHONY: neovide
+neovide:
+	@rm -rf $(HOME)/.config/neovide
+	@ln -sf $(PWD)/.config/neovide $(HOME)/.config/neovide
