@@ -129,6 +129,9 @@ export NVM_DIR="$HOME/.nvm"
 # }
 
 # ----------------------- ETC ----------------------- #
+alias ls="eza --icons"
+alias tree="eza --tree --icons"
+
 if command -v kitten &> /dev/null; then
     alias ssh="kitten ssh"
     alias icat="kitten icat"
