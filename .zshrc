@@ -93,11 +93,7 @@ fi
 export PATH=$PATH:$HOME/.local/bin
 
 # ----------------------- Go ----------------------- #
-if [[ "$OS" == "Linux" ]]; then
-    export GOROOT=/usr/local/go
-elif [[ "$OS" == "Darwin" ]]; then
-    export GOROOT=$(go env GOROOT)
-fi
+export GOROOT=$(go env GOROOT)
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias gg="go run main.go"
