@@ -1,6 +1,3 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/Zerohertz/nvim
-[submodule "linux"]
-	path = linux
-	url = https://github.com/Zerohertz/linux
