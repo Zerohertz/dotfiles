@@ -32,7 +32,7 @@ git config --global gpg.program gpg
 # ----------------------- ZSH ----------------------- #
 sudo apt-get update
 sudo apt-get install -y make
-curl -fsSL https://raw.githubusercontent.com/Zerohertz/etc/master/Util/sh/install_zsh.sh | bash &&
+curl -fsSL https://raw.githubusercontent.com/Zerohertz/dotfiles/main/linux/zsh.sh | bash &&
 	sudo chsh -s $(which zsh) && $HOME/.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/install -f &&
 	mkdir -p $HOME/.config && git clone https://github.com/Zerohertz/dotfiles $HOME/dotfiles --recurse-submodules && cd $HOME/dotfiles &&
 	make
@@ -53,13 +53,14 @@ sudo apt-get install -y fail2ban
 sudo systemctl enable fail2ban
 sudo systemctl start fail2ban
 sudo service fail2ban status
-sudo ln -sf ${HOME}/config/etc/fail2ban/jail.local /etc/fail2ban/jail.local
-sudo ln -sf ${HOME}/config/etc/fail2ban/action.d/slack_notifications.conf /etc/fail2ban/action.d/slack_notifications.conf
+sudo cp ${PWD}/config/etc/fail2ban/jail.local /etc/fail2ban/jail.local
+sudo cp ${PWD}/config/etc/fail2ban/action.d/slack_notifications.conf /etc/fail2ban/action.d/slack_notifications.conf
+sudo cp ${PWD}/config/usr/lib/systemd/system/fail2ban.service /usr/lib/systemd/system/fail2ban.service
 sudo service fail2ban restart
 
 # ----------------------- Google OTP ----------------------- #
 sudo apt-get install -y libpam-google-authenticator
 google-authenticator
-sudo ln -sf ${HOME}/config/etc/pam.d/sshd /etc/pam.d/sshd
-sudo ln -sf ${HOME}/config/etc/ssh/sshd_config /etc/ssh/sshd_config
+sudo cp ${PWD}/config/etc/pam.d/sshd /etc/pam.d/sshd
+sudo cp ${PWD}/config/etc/ssh/sshd_config /etc/ssh/sshd_config
 sudo systemctl restart ssh
