@@ -1,11 +1,10 @@
 sudo su
 
 # ----------------------- C++ ----------------------- #
-apt-get install -y build-essential gcc
+apt-get install -y build-essential gcc cmake
 
 # ----------------------- Go ----------------------- #
-wget https://go.dev/dl/go1.22.4.linux-amd64.tar.gz &&
-	rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.4.linux-amd64.tar.gz && rm go1.22.4.linux-amd64.tar.gz
+apt-get install -y golang
 
 # ----------------------- Java ----------------------- #
 apt-get install -y openjdk-17-jdk
