@@ -59,8 +59,13 @@ alias jail="sudo fail2ban-client status sshd"
 
 # ----------------------- DOCKER ----------------------- #
 dev() {
-    local dev_path="$1"
-    docker run -v ./"$dev_path":/home/zerohertz/workspace --rm -it zerohertzkr/dev
+    local name="${1:-tmp}"
+    docker run \
+        --name $name \
+        --platform linux/amd64 \
+        -v ./:/home/zerohertz/workspace \
+        --rm -d \
+        zerohertzkr/dev
 }
 alias exd="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
 alias rmi="docker image prune -a"
