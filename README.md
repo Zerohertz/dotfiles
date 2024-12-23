@@ -15,6 +15,18 @@
 ---
 
 <h4 align = "center">
+    🛠️ Configs 🛠️
+</h4>
+
+- [Kitty](.config/kitty/kitty.conf)
+- [Zsh](.zshrc)
+- [Powerlevel10k](.p10k.zsh)
+- [Neovim](https://github.com/Zerohertz/nvim)
+- [Neovide](.config/neovide/config.toml)
+- [tmux](.tmux.conf)
+- [Karabiner](.config/karabiner)
+
+<h4 align = "center">
     <a href="linux">🐧 Ubuntu 🐧</a>
 </h4>
 
@@ -39,8 +51,23 @@ $ make neovide
 ```
 
 <!-- markdownlint-enable -->
+<h4 align = "center">
+    <a href="https://hub.docker.com/r/zerohertzkr/dev">🐳 Docker 🐳</a>
+    <br/>
+    <br/>
+    <a href = "https://hub.docker.com/r/zerohertzkr/dev"><img src="https://img.shields.io/docker/v/zerohertzkr/dev?style=for-the-badge&logo=Docker&label=zerohertzkr/dev&labelColor=800a0a"/></a>
+</h4>
 
-- [Kitty](.config/kitty)
-- [Neovim](https://github.com/Zerohertz/nvim)
-- [Neovide](.config/neovide)
-- [Karabiner](.config/karabiner)
+<!-- markdownlint-disable -->
+
+```bash
+$ docker run \
+        --name $name \
+        --platform linux/amd64 \
+        -v ./:/home/zerohertz/workspace \
+        --rm -d \
+        zerohertzkr/dev
+$ docker exec -it $name zsh
+```
+
+<!-- markdownlint-enable -->
