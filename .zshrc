@@ -67,8 +67,8 @@ dev() {
         --rm -d \
         zerohertzkr/dev
 }
-alias exd="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm"
-alias rmi="docker image prune -a"
+alias drmc="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
+alias drmi="docker image prune -a"
 # k8s_build() {
 #     local image_name="$1"
 #     docker build -t "$image_name" .
@@ -78,6 +78,8 @@ alias rmi="docker image prune -a"
 # }
 
 # ----------------------- K8S ----------------------- #
+# alias crmc="sudo crictl ps -a | grep 'Exited' | awk '{print $1}' | xargs -I {} sudo crictl rm {} || true"
+alias crmi="sudo crictl rmi --prune"
 if command -v kubeadm &> /dev/null; then
     source <(kubeadm completion zsh)
 fi
