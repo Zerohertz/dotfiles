@@ -30,9 +30,10 @@ brew install fd
 brew install ripgrep
 brew install lazygit
 brew install luarocks
+brew install fish
 
 # -------- Neovim -------- #
-pip install neovim
+pip install neovim isort black pylatexenc
 npm install -g neovim
 
 # -------- VSCode -------- #
