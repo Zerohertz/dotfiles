@@ -67,6 +67,10 @@ dev() {
         --rm -d \
         zerohertzkr/dev
 }
+de() {
+    local name=$1
+    docker exec -it $name zsh
+}
 alias drmc="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
 alias drmi="docker image prune -a"
 # k8s_build() {
