@@ -44,6 +44,11 @@ kitty:
 	@rm -rf $(HOME)/.config/kitty
 	@ln -sf $(PWD)/.config/kitty $(HOME)/.config/kitty
 
+.PHONY: warp
+warp:
+	@rm -rf $(HOME)/.warp
+	@ln -sf $(PWD)/.config/warp $(HOME)/.warp
+
 .PHONY: neovide
 neovide:
 	@rm -rf $(HOME)/.config/neovide

@@ -1,0 +1,10 @@
+---
+"workspace:move_tab_right": ctrl-shift->
+"workflowview:save": none
+"terminal:toggle_teams_modal": none
+"pane_group:add_right": cmd-enter
+"workspace:activate_next_tab": ctrl-shift-right
+"code_view:save": none
+"workspace:activate_prev_tab": ctrl-shift-left
+"pane_group:navigate_next": cmd-s
+"workspace:move_tab_left": ctrl-shift-<

@@ -1,0 +1,25 @@
+name: zerohertz
+accent: "#800a0a"
+cursor: "#ffffff"
+background: "#000000"
+foreground: "#ffffff"
+details: darker
+terminal_colors:
+  bright:
+    black: "#000000"
+    blue: "#800a0a"
+    cyan: "#0dcdcd"
+    green: "#19cb00"
+    magenta: "#cb1ed1"
+    red: "#cc0403"
+    white: "#ffffff"
+    yellow: "#cecb00"
+  normal:
+    black: "#000000"
+    blue: "#800a0a"
+    cyan: "#0dcdcd"
+    green: "#19cb00"
+    magenta: "#cb1ed1"
+    red: "#cc0403"
+    white: "#ffffff"
+    yellow: "#cecb00"
