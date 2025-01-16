@@ -144,7 +144,7 @@ tree() {
     command eza --tree --icons "$@"
 }
 
-if command -v kitten &> /dev/null; then
+if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
     alias ssh="kitten ssh"
     alias icat="kitten icat"
 fi
