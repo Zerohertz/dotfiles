@@ -123,12 +123,22 @@ alias jj="java Main.java"
 # ----------------------- PYTHON ----------------------- #
 alias lint="isort . && black ."
 nvim-disable-python-formatter() {
-	sed -i '' '/isort/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
-	sed -i '' '/black/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+    if [[ "$OS" == "Linux" ]]; then
+        sed -i '/isort/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+        sed -i '/black/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+    elif [[ "$OS" == "Darwin" ]]; then
+        sed -i '' '/isort/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+        sed -i '' '/black/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+    fi
 }
 nvim-enable-python-formatter() {
-	sed -i '' '/isort/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
-	sed -i '' '/black/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+    if [[ "$OS" == "Linux" ]]; then
+        sed -i '/isort/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+        sed -i '/black/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+    elif [[ "$OS" == "Darwin" ]]; then
+        sed -i '' '/isort/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+        sed -i '' '/black/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+    fi
 }
 
 # ----------------------- NODE ----------------------- #
