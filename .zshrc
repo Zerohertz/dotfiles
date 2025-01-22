@@ -120,6 +120,17 @@ elif [[ "$OS" == "Darwin" ]]; then
 fi
 alias jj="java Main.java"
 
+# ----------------------- PYTHON ----------------------- #
+alias lint="isort . && black ."
+nvim-disable-python-formatter() {
+	sed -i '' '/isort/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+	sed -i '' '/black/s/^[[:space:]]*/&-- /' ~/.config/nvim/lua/plugins/null-ls.lua
+}
+nvim-enable-python-formatter() {
+	sed -i '' '/isort/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+	sed -i '' '/black/s/\(\s*\)-- /\1/' ~/.config/nvim/lua/plugins/null-ls.lua
+}
+
 # ----------------------- NODE ----------------------- #
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -155,7 +166,6 @@ alias tn="tmux new -s"
 alias tl="tmux ls"
 alias ta="tmux attach -t"
 
-alias lint="isort . && black ."
 export PROMPT_EOL_MARK=
 
 # ----------------------- CREDENTIALS ----------------------- #
