@@ -2,8 +2,11 @@ SHELL := /bin/zsh
 USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
-.PHONY: all
+.PHONY: linux
 all: zsh p10k tmux nvim
+
+.PHONY: macos
+macos: zsh p10k tmux nvim kitty warp yabai neovide
 
 .PHONY: zsh
 zsh:
@@ -48,6 +51,13 @@ kitty:
 warp:
 	@rm -rf $(HOME)/.warp
 	@ln -sf $(PWD)/.config/warp $(HOME)/.warp
+
+.PHONY: yabai
+yabai:
+	@rm -rf $(HOME)/.config/yabai
+	@rm -rf $(HOME)/.config/skhd
+	@ln -sf $(PWD)/.config/yabai $(HOME)/.config/yabai
+	@ln -sf $(PWD)/.config/skhd $(HOME)/.config/skhd
 
 .PHONY: neovide
 neovide:
