@@ -14,10 +14,11 @@ brew install --cask karabiner-elements
 # -------- Yabai -------- #
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
-# yabai --start-service
+# csrutil enable --without fs --without debug --without nvram
+# csrutil disable --with kext --with dtrace --with basesystem
+# sudo nvram boot-args=-arm64e_preview_abi
 # echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
+# yabai --start-service
 
 # -------- Dev -------- #
 brew install --cask miniconda
