@@ -36,9 +36,8 @@ yabai -m config \
 	mouse_drop_action swap
 
 # yabai -m query --windows
-yabai -m rule --add app="^(Calculator|Software Update|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|App Store|Activity Monitor)$" manage=off
+yabai -m rule --add app="^(Calculator|Software Update|System Preferences|System Settings|zoom.us|Photo Booth|Archive Utility|Python|App Store|Activity Monitor|Finder)$" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add app="KakaoTalk" manage=off
 
 echo "yabai configuration loaded.."
