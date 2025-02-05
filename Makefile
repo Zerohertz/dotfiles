@@ -3,7 +3,7 @@ USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
 .PHONY: linux
-all: zsh p10k tmux neofetch nvim
+linux: zsh p10k tmux neofetch nvim
 
 .PHONY: macos
 macos: zsh p10k tmux neofetch nvim kitty warp yabai neovide
