@@ -3,10 +3,10 @@ USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
 .PHONY: linux
-all: zsh p10k tmux nvim
+all: zsh p10k tmux neofetch nvim
 
 .PHONY: macos
-macos: zsh p10k tmux nvim kitty warp yabai neovide
+macos: zsh p10k tmux neofetch nvim kitty warp yabai neovide
 
 .PHONY: zsh
 zsh:
@@ -28,6 +28,11 @@ endif
 .PHONY: tmux
 tmux:
 	@ln -sf $(PWD)/.tmux.conf $(HOME)/.tmux.conf
+
+.PHONY: neofetch
+neofetch:
+	@rm -rf $(HOME)/.config/neofetch
+	@ln -sf $(PWD)/.config/neofetch $(HOME)/.config/neofetch
 
 .PHONY: nvim
 nvim:

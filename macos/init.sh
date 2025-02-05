@@ -58,3 +58,6 @@ brew install speedtest-cli
 brew install --cask slack
 brew install --cask discord
 brew install --cask nextcloud
+
+# -------- Etc -------- #
+brew install neofetch
