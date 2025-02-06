@@ -60,4 +60,5 @@ brew install --cask discord
 brew install --cask nextcloud
 
 # -------- Etc -------- #
+brew install autojump
 brew install neofetch

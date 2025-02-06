@@ -41,6 +41,11 @@ unset __conda_setup
 # ----------------------- ZSH ----------------------- #
 export SHELL=/bin/zsh
 export EDITOR="nvim"
+if [[ "$OS" == "Linux" ]]; then
+    [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
+elif [[ "$OS" == "Darwin" ]]; then
+    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+fi
 
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
