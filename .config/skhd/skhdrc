@@ -151,7 +151,7 @@ ctrl + cmd - l : yabai -m display --focus east
 # toggle window zoom
 # alt - d : yabai -m window --toggle zoom-parent
 # alt - f : yabai -m window --toggle zoom-fullscreen
-ctrl - f : yabai -m window --toggle zoom-fullscreen
+ctrl - q : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 # alt - e : yabai -m window --toggle split
