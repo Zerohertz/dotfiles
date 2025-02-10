@@ -1,3 +1,4 @@
+# ----------------------- ZSH ----------------------- #
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -12,40 +13,13 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 OS=$(uname)
 if [[ "$OS" == "Linux" ]]; then
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
-elif [[ "$OS" == "Darwin" ]]; then
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# ----------------------- ZSH ----------------------- #
 export SHELL=/bin/zsh
 export EDITOR="nvim"
-if [[ "$OS" == "Linux" ]]; then
-    [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
-elif [[ "$OS" == "Darwin" ]]; then
-    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-fi
 
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
@@ -126,6 +100,20 @@ fi
 alias jj="java Main.java"
 
 # ----------------------- PYTHON ----------------------- #
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 alias lint="isort . && black ."
 
 # ----------------------- NODE ----------------------- #
@@ -144,6 +132,18 @@ export NVM_DIR="$HOME/.nvm"
 # }
 
 # ----------------------- ETC ----------------------- #
+if [[ "$OS" == "Linux" ]]; then
+    [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
+elif [[ "$OS" == "Darwin" ]]; then
+    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
+if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
+    alias ssh="kitten ssh"
+    alias icat="kitten icat"
+fi
+
 unalias ls 2>/dev/null
 ls() {
     command eza --icons "$@"
@@ -151,11 +151,6 @@ ls() {
 tree() {
     command eza --tree --icons "$@"
 }
-
-if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
-    alias ssh="kitten ssh"
-    alias icat="kitten icat"
-fi
 
 alias rsync="rsync -avhzP -e ssh"
 
