@@ -93,8 +93,8 @@ if [[ "$OS" == "Linux" ]]; then
     export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
     export PATH=$JAVA_HOME/bin:$PATH
 elif [[ "$OS" == "Darwin" ]]; then
-    export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
-    export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+    export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
     export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 fi
 alias jj="java Main.java"
