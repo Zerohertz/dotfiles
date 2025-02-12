@@ -24,6 +24,7 @@ brew install koekeishiya/formulae/skhd
 # -------- Dev -------- #
 brew install --cask miniconda
 brew install openjdk@17
+brew install openjdk@21
 curl -s "https://get.sdkman.io" | bash
 brew install go
 brew install rust
