@@ -67,3 +67,4 @@ brew install --cask nextcloud
 # -------- Etc -------- #
 brew install autojump
 brew install neofetch
+brew install bpytop
