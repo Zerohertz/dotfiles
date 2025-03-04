@@ -36,6 +36,10 @@ brew install terraform
 brew install --cask docker
 brew install --cask postman
 
+brew install bun
+brew install mysql-client
+brew install mongodb-community-shell
+
 # -------- Neovim -------- #
 brew install neovim
 brew install --cask neovide
