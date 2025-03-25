@@ -78,6 +78,7 @@ if command -v kubectl &> /dev/null; then
     alias ka="kubectl apply -f"
     alias kd="kubectl delete"
     alias kdn="kubectl delete ns"
+    alias kdf="kubectl delete po --force"
 fi
 
 # ----------------------- K9S ----------------------- #
