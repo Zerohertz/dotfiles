@@ -72,3 +72,5 @@ brew install --cask nextcloud
 brew install autojump
 brew install neofetch
 brew install bpytop
+
+# defaults write -g ApplePressAndHoldEnabled -bool false
