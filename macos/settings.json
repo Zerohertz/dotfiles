@@ -90,7 +90,44 @@
           "--key",
           "${env:SMITHERY_API_KEY}"
         ]
+      },
+      "@peng-shawn/mermaid-mcp-server": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@smithery/cli@latest",
+          "run",
+          "@peng-shawn/mermaid-mcp-server",
+          "--key",
+          "${env:SMITHERY_API_KEY}"
+        ]
+      },
+      "@shreyaskarnik/huggingface-mcp-server": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@smithery/cli@latest",
+          "run",
+          "@shreyaskarnik/huggingface-mcp-server",
+          "--key",
+          "${env:SMITHERY_API_KEY}",
+          "--config",
+          "{\"hfToken\":\"${env:HUGGINGFACE_API_KEY}\"}"
+        ]
       }
+      // "mysql-mcp-server": {
+      //   "command": "npx",
+      //   "args": [
+      //     "-y",
+      //     "@smithery/cli@latest",
+      //     "run",
+      //     "mysql-mcp-server",
+      //     "--key",
+      //     "${env:SMITHERY_API_KEY}",
+      //     "--config",
+      //     "{\"mysqlHost\":\"host.docker.internal\",\"mysqlPort\":\"3306\",\"mysqlUser\":\"user\",\"mysqlDatabase\":\"database\",\"mysqlPassword\":\"password\"}4b"
+      //   ]
+      // },
     }
   },
   // ------------------ LINT ------------------ //
