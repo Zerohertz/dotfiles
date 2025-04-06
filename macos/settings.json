@@ -1,0 +1,174 @@
+{
+  // ------------------ VIM ------------------ //
+  "vim.leader": "<space>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["!"],
+      "after": ["^"]
+    },
+    {
+      "before": ["@"],
+      "after": ["$"]
+    },
+    {
+      "before": ["ㅗ"],
+      "after": ["h"]
+    },
+    {
+      "before": ["ㅓ"],
+      "after": ["j"]
+    },
+    {
+      "before": ["ㅏ"],
+      "after": ["k"]
+    },
+    {
+      "before": ["ㅣ"],
+      "after": ["l"]
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<C-l>"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.quickOpen"]
+    }
+  ],
+  // ------------------ LINT ------------------ //
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "isort.args": ["--profile", "black"],
+  "editor.formatOnSave": true,
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true
+  },
+  "prettier.tabWidth": 4,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  // ------------------ COLOR ------------------ //
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "terminal.background": "#000000",
+    "terminal.foreground": "#FFFFFF",
+    "terminalCursor.background": "#FFFFFF",
+    "terminalCursor.foreground": "#FFFFFF",
+    "terminal.ansiBlack": "#000000",
+    "terminal.ansiBlue": "#800A0A",
+    "terminal.ansiBrightBlue": "#00FFFF",
+    "terminal.ansiBrightCyan": "#0000FF",
+    "terminal.ansiBrightGreen": "#00FF00",
+    "terminal.ansiBrightMagenta": "#FF00F0",
+    "terminal.ansiBrightRed": "#FF0000",
+    "terminal.ansiBrightWhite": "#F7F7F7",
+    "terminal.ansiBrightYellow": "#FFFF00",
+    "terminal.ansiCyan": "#00FFFF",
+    "terminal.ansiGreen": "#00FF00",
+    "terminal.ansiMagenta": "#FF00F0",
+    "terminal.ansiRed": "#FF0000",
+    "terminal.ansiWhite": "#FFFFFF",
+    "terminal.ansiYellow": "#FFFF00",
+    "[Default Dark Modern]": {
+      "activityBarBadge.background": "#800a0a",
+      "activityBar.activeBorder": "#800a0a",
+      "list.activeSelectionForeground": "#f00a0a",
+      "list.inactiveSelectionForeground": "#800a0a",
+      "list.highlightForeground": "#800a0a",
+      "scrollbarSlider.activeBackground": "#800a0a",
+      "editorSuggestWidget.highlightForeground": "#800a0a",
+      "textLink.foreground": "#800a0a",
+      "progressBar.background": "#800a0a",
+      "pickerGroup.foreground": "#800a0a",
+      "tab.activeBorder": "#800a0a",
+      "notificationLink.foreground": "#800a0a",
+      "editorWidget.resizeBorder": "#800a0a",
+      "editorWidget.border": "#800a0a",
+      "settings.modifiedItemIndicator": "#800a0a",
+      "settings.headerForeground": "#800a0a",
+      "panelTitle.activeBorder": "#800a0a",
+      "breadcrumb.activeSelectionForeground": "#800a0a",
+      "menu.selectionForeground": "#800a0a",
+      "menubar.selectionForeground": "#800a0a",
+      "editor.findMatchBorder": "#800a0a",
+      "selection.background": "#800a0a",
+      "statusBarItem.remoteBackground": "#800a0a"
+    }
+  },
+  "material-icon-theme.folders.color": "#800a0a",
+  // ------------------ FONT ------------------ //
+  "editor.fontFamily": "'MesloLGS NF'",
+  // ------------------ SSH ------------------ //
+  "remote.SSH.remotePlatform": {
+    "Zerohertz": "linux"
+  },
+  // ------------------ ETC ------------------ //
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.startupEditor": "none",
+  "editor.renderWhitespace": "boundary",
+  "editor.accessibilitySupport": "on",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "remote.autoForwardPortsSource": "hybrid",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "mcp": {
+    "servers": {
+      "@smithery-ai/github": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@smithery/cli@latest",
+          "run",
+          "@smithery-ai/github",
+          "--key",
+          "${env:SMITHERY_API_KEY}"
+        ]
+      },
+      "@microsoft/playwright-mcp": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@smithery/cli@latest",
+          "run",
+          "@microsoft/playwright-mcp",
+          "--key",
+          "${env:SMITHERY_API_KEY}"
+        ]
+      }
+    }
+  }
+}
