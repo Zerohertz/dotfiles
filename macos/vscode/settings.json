@@ -65,6 +65,14 @@
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
+      "before": ["!"],
+      "after": ["^"]
+    },
+    {
+      "before": ["@"],
+      "after": ["$"]
+    },
+    {
       "before": ["<leader>", "y"],
       "commands": ["editor.action.clipboardCopyAction"]
     },
