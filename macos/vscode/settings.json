@@ -210,6 +210,8 @@
     "FIG_NEW_SESSION": "1"
   },
   "remote.autoForwardPortsSource": "hybrid",
+  "git.openRepositoryInParentFolders": "always",
+  "redhat.telemetry.enabled": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   // ------------------ SOUND ------------------ //
