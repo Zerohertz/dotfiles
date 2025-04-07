@@ -1,0 +1,14 @@
+[
+  {
+    "key": "f12",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "cmd+s",
+    "command": "workbench.action.focusNextPart"
+  },
+  {
+    "key": "f6",
+    "command": "-workbench.action.focusNextPart"
+  }
+]

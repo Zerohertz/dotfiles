@@ -53,6 +53,24 @@
     {
       "before": ["<leader>", "l"],
       "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "a", "a"],
+      "commands": ["workbench.action.chat.openEditSession"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "y"],
+      "commands": ["editor.action.clipboardCopyAction"]
+    },
+    {
+      "before": ["<leader>", "a", "a"],
+      "commands": ["workbench.action.chat.openEditSession"]
     }
   ],
   // ------------------ MCP ------------------ //
@@ -101,33 +119,7 @@
           "--key",
           "${env:SMITHERY_API_KEY}"
         ]
-      },
-      "@shreyaskarnik/huggingface-mcp-server": {
-        "command": "npx",
-        "args": [
-          "-y",
-          "@smithery/cli@latest",
-          "run",
-          "@shreyaskarnik/huggingface-mcp-server",
-          "--key",
-          "${env:SMITHERY_API_KEY}",
-          "--config",
-          "{\"hfToken\":\"${env:HUGGINGFACE_API_KEY}\"}"
-        ]
       }
-      // "mysql-mcp-server": {
-      //   "command": "npx",
-      //   "args": [
-      //     "-y",
-      //     "@smithery/cli@latest",
-      //     "run",
-      //     "mysql-mcp-server",
-      //     "--key",
-      //     "${env:SMITHERY_API_KEY}",
-      //     "--config",
-      //     "{\"mysqlHost\":\"host.docker.internal\",\"mysqlPort\":\"3306\",\"mysqlUser\":\"user\",\"mysqlDatabase\":\"database\",\"mysqlPassword\":\"password\"}4b"
-      //   ]
-      // },
     }
   },
   // ------------------ LINT ------------------ //
