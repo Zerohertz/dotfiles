@@ -59,6 +59,10 @@
       "commands": ["workbench.action.closeActiveEditor"]
     },
     {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
       "before": ["<leader>", "a", "a"],
       "commands": ["workbench.action.chat.openEditSession"]
     }
@@ -206,22 +210,6 @@
   "remote.SSH.remotePlatform": {
     "Zerohertz": "linux"
   },
-  // ------------------ ETC ------------------ //
-  "security.workspace.trust.untrustedFiles": "open",
-  "workbench.startupEditor": "none",
-  "editor.renderWhitespace": "boundary",
-  "editor.accessibilitySupport": "on",
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "remote.autoForwardPortsSource": "hybrid",
-  "git.openRepositoryInParentFolders": "always",
-  "redhat.telemetry.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always",
   // ------------------ SOUND ------------------ //
   "accessibility.signals.diffLineDeleted": {
     "sound": "off"
@@ -336,5 +324,22 @@
   "accessibility.signals.editsKept": {
     "sound": "off",
     "announcement": "auto"
-  }
+  },
+  // ------------------ ETC ------------------ //
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.startupEditor": "none",
+  "editor.renderWhitespace": "boundary",
+  "editor.accessibilitySupport": "on",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "window.zoomLevel": 1,
+  "remote.autoForwardPortsSource": "hybrid",
+  "git.openRepositoryInParentFolders": "always",
+  "redhat.telemetry.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
