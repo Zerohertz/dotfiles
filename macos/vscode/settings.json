@@ -63,6 +63,10 @@
       "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     {
+      "before": ["<leader>", "f", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
+    },
+    {
       "before": ["<leader>", "a", "a"],
       "commands": ["workbench.action.chat.openEditSession"]
     }
