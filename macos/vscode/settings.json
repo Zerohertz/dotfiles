@@ -100,7 +100,9 @@
           "run",
           "@smithery-ai/github",
           "--key",
-          "${env:SMITHERY_API_KEY}"
+          "${env:SMITHERY_API_KEY}",
+          "--config",
+          "{\"githubPersonalAccessToken\":\"${env:GITHUB_TOKEN}\"}"
         ]
       },
       "@microsoft/playwright-mcp": {
@@ -340,7 +342,6 @@
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "window.zoomLevel": 1,
   "remote.autoForwardPortsSource": "hybrid",
   "git.openRepositoryInParentFolders": "always",
   "redhat.telemetry.enabled": true,
