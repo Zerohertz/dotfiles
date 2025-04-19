@@ -104,40 +104,29 @@
           "--config",
           "{\"githubPersonalAccessToken\":\"${env:GITHUB_TOKEN}\"}"
         ]
-      },
-      "@microsoft/playwright-mcp": {
-        "command": "npx",
-        "args": [
-          "-y",
-          "@smithery/cli@latest",
-          "run",
-          "@microsoft/playwright-mcp",
-          "--key",
-          "${env:SMITHERY_API_KEY}"
-        ]
-      },
-      "@wonderwhy-er/desktop-commander": {
-        "command": "npx",
-        "args": [
-          "-y",
-          "@smithery/cli@latest",
-          "run",
-          "@wonderwhy-er/desktop-commander",
-          "--key",
-          "${env:SMITHERY_API_KEY}"
-        ]
-      },
-      "@peng-shawn/mermaid-mcp-server": {
-        "command": "npx",
-        "args": [
-          "-y",
-          "@smithery/cli@latest",
-          "run",
-          "@peng-shawn/mermaid-mcp-server",
-          "--key",
-          "${env:SMITHERY_API_KEY}"
-        ]
       }
+      // "@microsoft/playwright-mcp": {
+      //   "command": "npx",
+      //   "args": [
+      //     "-y",
+      //     "@smithery/cli@latest",
+      //     "run",
+      //     "@microsoft/playwright-mcp",
+      //     "--key",
+      //     "${env:SMITHERY_API_KEY}"
+      //   ]
+      // },
+      // "@peng-shawn/mermaid-mcp-server": {
+      //   "command": "npx",
+      //   "args": [
+      //     "-y",
+      //     "@smithery/cli@latest",
+      //     "run",
+      //     "@peng-shawn/mermaid-mcp-server",
+      //     "--key",
+      //     "${env:SMITHERY_API_KEY}"
+      //   ]
+      // }
     }
   },
   // ------------------ LINT ------------------ //
