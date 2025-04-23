@@ -92,18 +92,12 @@
   // ------------------ MCP ------------------ //
   "mcp": {
     "servers": {
-      "@smithery-ai/github": {
+      "github": {
         "command": "npx",
-        "args": [
-          "-y",
-          "@smithery/cli@latest",
-          "run",
-          "@smithery-ai/github",
-          "--key",
-          "${env:SMITHERY_API_KEY}",
-          "--config",
-          "{\"githubPersonalAccessToken\":\"${env:GITHUB_TOKEN}\"}"
-        ]
+        "args": ["-y", "@modelcontextprotocol/server-github"],
+        "env": {
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_TOKEN}"
+        }
       }
       // "@microsoft/playwright-mcp": {
       //   "command": "npx",
