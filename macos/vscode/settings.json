@@ -98,29 +98,11 @@
         "env": {
           "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_TOKEN}"
         }
+      },
+      "playwright": {
+        "command": "npx",
+        "args": ["@playwright/mcp@latest"]
       }
-      // "@microsoft/playwright-mcp": {
-      //   "command": "npx",
-      //   "args": [
-      //     "-y",
-      //     "@smithery/cli@latest",
-      //     "run",
-      //     "@microsoft/playwright-mcp",
-      //     "--key",
-      //     "${env:SMITHERY_API_KEY}"
-      //   ]
-      // },
-      // "@peng-shawn/mermaid-mcp-server": {
-      //   "command": "npx",
-      //   "args": [
-      //     "-y",
-      //     "@smithery/cli@latest",
-      //     "run",
-      //     "@peng-shawn/mermaid-mcp-server",
-      //     "--key",
-      //     "${env:SMITHERY_API_KEY}"
-      //   ]
-      // }
     }
   },
   // ------------------ LINT ------------------ //
