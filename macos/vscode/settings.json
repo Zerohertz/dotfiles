@@ -113,6 +113,7 @@
       "source.organizeImports": "explicit"
     }
   },
+  "python.languageServer": "Default",
   "isort.args": ["--profile", "black"],
   "editor.formatOnSave": true,
   "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
@@ -126,6 +127,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   // ------------------ COLOR ------------------ //
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
@@ -309,7 +312,5 @@
   },
   "remote.autoForwardPortsSource": "hybrid",
   "git.openRepositoryInParentFolders": "always",
-  "redhat.telemetry.enabled": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "redhat.telemetry.enabled": true
 }
