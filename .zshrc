@@ -69,16 +69,17 @@ if command -v kubeadm &> /dev/null; then
 fi
 if command -v kubectl &> /dev/null; then
     source <(kubectl completion zsh)
-    alias k="kubectl"
-    alias ku="kubectl config use-context"
-    alias wk="watch kubectl"
-    alias kg="kubectl get"
-    alias kgp="kubectl get po"
-    alias kc="kubectl create"
-    alias ka="kubectl apply -f"
-    alias kd="kubectl delete"
-    alias kdn="kubectl delete ns"
-    alias kdf="kubectl delete po --force"
+    compdef kubecolor=kubectl
+    alias k="kubecolor"
+    alias ku="kubecolor config use-context"
+    alias wk="watch kubecolor"
+    alias kg="kubecolor get"
+    alias kgp="kubecolor get po"
+    alias kc="kubecolor create"
+    alias ka="kubecolor apply -f"
+    alias kd="kubecolor delete"
+    alias kdn="kubecolor delete ns"
+    alias kdf="kubecolor delete po --force"
 fi
 
 # ----------------------- K9S ----------------------- #
