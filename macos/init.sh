@@ -40,6 +40,9 @@ brew install bun
 brew install mysql-client
 brew install mongodb-community-shell
 
+brew install kubernetes-cli
+brew install kubecolor
+
 # -------- Neovim -------- #
 brew install neovim
 brew install --cask neovide
