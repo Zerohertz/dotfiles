@@ -85,6 +85,9 @@ fi
 # ----------------------- K9S ----------------------- #
 export PATH=$PATH:$HOME/.local/bin
 
+# ----------------------- C++ ----------------------- #
+alias cpp="g++ main.cpp -std=c++23 -o main"
+
 # ----------------------- Go ----------------------- #
 export GOROOT=$(go env GOROOT)
 export GOPATH=$HOME/go
