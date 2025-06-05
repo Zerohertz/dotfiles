@@ -3,10 +3,10 @@ USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
 .PHONY: linux
-linux: zsh p10k tmux neofetch vim nvim
+linux: zsh p10k tmux neofetch vim nvim git
 
 .PHONY: macos
-macos: zsh p10k tmux neofetch vim nvim kitty warp yabai neovide
+macos: zsh p10k tmux neofetch vim nvim git kitty warp yabai neovide
 
 .PHONY: zsh
 zsh:
@@ -53,6 +53,10 @@ ifneq ($(USER), root)
 	@sudo mkdir -p $(ROOT_HOME)/.local/share && sudo ln -sf $(HOME)/.local/share/nvim $(ROOT_HOME)/.local/share
 endif
 	@cd $(PWD)/.config/nvim && git switch main && git pull origin main
+
+.PHONY: git
+git:
+	@ln -sf $(PWD)/.gitconfig $(HOME)/.gitconfig
 
 .PHONY: kitty
 kitty:
