@@ -3,10 +3,10 @@ USER := $(shell whoami)
 ROOT_HOME := $(shell echo ~root)
 
 .PHONY: linux
-linux: zsh p10k tmux neofetch vim nvim git
+linux: zsh p10k tmux neofetch vim nvim git gpg
 
 .PHONY: macos
-macos: zsh p10k tmux neofetch vim nvim git kitty warp yabai neovide
+macos: zsh p10k tmux neofetch vim nvim git gpg kitty warp yabai neovide
 
 .PHONY: zsh
 zsh:
@@ -57,6 +57,11 @@ endif
 .PHONY: git
 git:
 	@ln -sf $(PWD)/.gitconfig $(HOME)/.gitconfig
+
+.PHONY: gpg
+gpg:
+	@mkdir -p $(HOME)/.gnupg
+	@ln -sf $(PWD)/.gnupg/gpg-agent.conf $(HOME)/.gnupg/gpg-agent.conf
 
 .PHONY: kitty
 kitty:
