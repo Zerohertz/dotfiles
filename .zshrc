@@ -25,6 +25,43 @@ export EDITOR="nvim"
 export GPG_TTY=$TTY
 # killall gpg-agent
 # gpg-agent --daemon
+gpgctl() {
+	local act=$1
+    local key=$2
+	case "$act" in
+	ls)
+        echo "===================== Public Key ====================="
+        gpg --list-keys
+        echo "===================== Secret Key ====================="
+        gpg --list-secret-keys
+		;;
+	delete)
+        echo "===================== Public Key ====================="
+        gpg --delete-keys $key
+        echo "===================== Secret Key ====================="
+        gpg --delete-secret-keys $key
+		;;
+	export)
+        echo "===================== Public Key ====================="
+        gpg --export $key > gpg-public-key.gpg
+        echo "===================== Secret Key ====================="
+        gpg --export-secret-keys $key > gpg-secret-key.gpg
+        echo "===================== Ownertrust ====================="
+        gpg --export-ownertrust > gpg-trust-settings.txt
+		;;
+	import)
+        echo "===================== Public Key ====================="
+        gpg --import gpg-public-key.gpg
+        echo "===================== Secret Key ====================="
+        gpg --import gpg-secret-key.gpg
+        echo "===================== Ownertrust ====================="
+        gpg --import-ownertrust gpg-trust-settings.txt
+		;;
+	*)
+		echo "Wrong usage"
+		;;
+	esac
+}
 
 # ----------------------- UFW ----------------------- #
 alias us="sudo ufw status numbered"
