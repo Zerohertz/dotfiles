@@ -66,6 +66,10 @@ brew install eza
 brew install tmux
 brew install speedtest-cli
 
+# -------- Git -------- #
+brew install bat
+brew install delta
+
 # -------- Util -------- #
 brew install --cask slack
 brew install --cask discord

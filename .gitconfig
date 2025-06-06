@@ -1,45 +1,82 @@
+; References
+; - https://github.com/johngrib/dotfiles/blob/master/.gitconfig
+; - https://github.com/simnalamburt/.dotfiles/blob/main/.gitconfig
+
 [user]
 	name = Zerohertz
 	email = ohg3417@gmail.com
 	signingkey = 81F5EC86207A158DEC9F2F4B5F01FCB6F6215F40
+[init]
+	defaultBranch = main
+[core]
+    editor = nvim
+    pager = delta | less -MIR --status-column
+    autocrlf = input
+    quotepath = false
+    precomposeunicode = true
+[transfer]
+	fsckobjects = true
+[receive]
+	fsckObjects = true
+[submodule]
+	fetchJobs = 0
+	recurse = true
+[help]
+	autocorrect = prompt
+[color]
+	ui = auto
+[column]
+    ui = never
 [commit]
+    verbose = true
 	gpgsign = true
 [gpg]
 	program = gpg
 [credential]
 	helper = store
-[branch]
-    sort = -committerdate
-[column]
-    ui = auto
-[core]
-    autocrlf = input
-    precomposeunicode = true
-    quotepath = false
-    pager = delta | less -MIR --status-column
 [interactive]
     diffFilter = delta --color-only
+[stash]
+	showPatch = true
+[status]
+	showStash = true
+	submoduleSummary = true
+[push]
+	default = simple
+[fetch]
+	prune = yes
+	prunetags = true
+	fsckobjects = true
+[pull]
+	rebase = true
+[log]
+	date = iso8601
+[branch]
+    sort = -committerdate
+[tag]
+    gpgsign = true
+    sort = version:refname
+[diff]
+    tool = vimdiff
+    wsErrorHighlight = all
+[difftool "vimdiff"]
+    path = nvim
+[merge]
+    conflictstyle = zdiff3
+    trustExitCode = true
+[mergetool "vimdiff"]
+    path = nvim
+    trustExitCode = true
+[rebase]
+	autostash = true
+	autosquash = true
 [delta]
     navigate = true
     dark = true
     line-numbers = true
-[merge]
-    conflictstyle = zdiff3
-    trustExitCode = true
-[diff]
-    ; colorMoved = default
-    tool = vimdiff
-    wsErrorHighlight = all
-[difftool "vimdiff"]
-    path = /opt/homebrew/bin/nvim
-[mergetool "vimdiff"]
-    path = /opt/homebrew/bin/nvim
-    trustExitCode = true
 [rerere]
     enabled = true
     autoUpdate = true
-[tag]
-    sort = version:refname
 [alias]
     alias = "!# 모든 alias를 출력합니다.;\n\
         git config --list | egrep '^alias.+' | sed -e 's/^alias\\.//' | sed -e 's/^[^=]*=/\\'$'\\033[31m&\\033[(B\\033[m/' | column -t -s'=' | sed 's/!#* *//; s/;$//' | cut -c1-85"
@@ -325,5 +362,3 @@
             git tag -d $_current; \
         fi; \
     }; f"
-
-; Reference: https://github.com/johngrib/dotfiles/blob/master/.gitconfig
