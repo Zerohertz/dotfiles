@@ -1,7 +1,7 @@
 [user]
 	name = Zerohertz
 	email = ohg3417@gmail.com
-	signingkey = 526C493611CF49C969BA79DBFB8326D3B222D3C9
+	signingkey = 81F5EC86207A158DEC9F2F4B5F01FCB6F6215F40
 [commit]
 	gpgsign = true
 [gpg]
