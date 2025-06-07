@@ -11,6 +11,8 @@ apt-get install -y openjdk-17-jdk openjdk-21-jdk
 
 # ----------------------- Python ----------------------- #
 curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --system
+sudo mv $(which uv) /bin/uv
+sudo mv $(which uvx) /bin/uvx
 UV_PYTHON_INSTALL_DIR=/opt/venv uv python install 3.13
 UV_PYTHON_INSTALL_DIR=/opt/venv uv venv /opt/venv/main --python 3.13 --prompt "main" --seed --color always
 
