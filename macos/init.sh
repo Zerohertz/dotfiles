@@ -56,8 +56,9 @@ brew install ripgrep
 brew install lazygit
 brew install luarocks
 brew install fish
-
-# -------- Neovim -------- #
+brew install imagemagick
+brew install gs
+brew install mmdbctl
 pip install neovim isort black pylatexenc
 npm install -g neovim
 
