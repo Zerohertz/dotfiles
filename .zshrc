@@ -143,6 +143,7 @@ fi
 alias jj="java Main.java"
 
 # ----------------------- PYTHON ----------------------- #
+export UV_PYTHON_INSTALL_DIR=/opt/venv
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 source /opt/venv/main/bin/activate
