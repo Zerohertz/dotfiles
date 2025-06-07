@@ -79,7 +79,7 @@ dev() {
     docker run \
         --name $name \
         --platform linux/amd64 \
-        -v ./:/home/zerohertz/workspace \
+        -v ./:/workspace \
         -v ~/.config/github-copilot:/home/zerohertz/.config/github-copilot \
         --rm -d \
         zerohertzkr/dev
