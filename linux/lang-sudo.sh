@@ -11,7 +11,8 @@ apt-get install -y openjdk-17-jdk openjdk-21-jdk
 
 # ----------------------- Python ----------------------- #
 curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --system
-uv venv /opt/venv --python 3.13 --prompt "main" --seed --color always
+UV_PYTHON_INSTALL_DIR=/opt/venv uv python install 3.13
+UV_PYTHON_INSTALL_DIR=/opt/venv uv venv /opt/venv/main --python 3.13 --prompt "main" --seed --color always
 
 # ----------------------- Terraform ----------------------- #
 wget -O- https://apt.releases.hashicorp.com/gpg |
