@@ -144,8 +144,12 @@ alias jj="java Main.java"
 
 # ----------------------- PYTHON ----------------------- #
 export UV_PYTHON_INSTALL_DIR=/opt/venv
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+if command -v uv &> /dev/null; then
+    eval "$(uv generate-shell-completion zsh)"
+fi
+if command -v uvx &> /dev/null; then
+    eval "$(uvx --generate-shell-completion zsh)"
+fi
 source /opt/venv/main/bin/activate
 alias lint="isort . && black ."
 
