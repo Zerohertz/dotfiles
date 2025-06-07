@@ -18,16 +18,8 @@ sudo mount -t exfat /dev/sda1 /mnt/HDD
 cp -r --no-preserve=mode /mnt/HDD/backup/Zerohertz ./
 
 # ----------------------- Git ----------------------- #
-git config --global user.name Zerohertz
-git config --global user.email ohg3417@gmail.com
-git config --global credential.helper store
-gpg --full-generate-key # 1, 4096, 0, y
-gpg --armor --export ${FINGERPRINT}
-echo -e "default-cache-ttl 28800\nmax-cache-ttl 28800" >>~/.gnupg/gpg-agent.conf
-killall gpg-agent
-git config --global user.signingkey ${FINGERPRINT}
-git config --global commit.gpgsign true
-git config --global gpg.program gpg
+apt-get install -y bat
+apt-get install -y git-delta
 
 # ----------------------- ZSH ----------------------- #
 sudo apt-get update

@@ -9,8 +9,8 @@ curl -fsSL https://get.sdkman.io | bash &&
     sdk install gradle && sdk install springboot && exit"
 
 # ----------------------- Python ----------------------- #
-wget https://repo.anaconda.com/miniconda/Miniconda3-py312_24.7.1-0-Linux-x86_64.sh -O $HOME/miniconda.sh &&
-	chmod +x $HOME/miniconda.sh &&
-	$HOME/miniconda.sh -b -p $HOME/miniconda &&
-	rm $HOME/miniconda.sh &&
-	$HOME/miniconda/bin/conda init zsh
+# wget https://repo.anaconda.com/miniconda/Miniconda3-py312_24.7.1-0-Linux-x86_64.sh -O $HOME/miniconda.sh &&
+# 	chmod +x $HOME/miniconda.sh &&
+# 	$HOME/miniconda.sh -b -p $HOME/miniconda &&
+# 	rm $HOME/miniconda.sh &&
+# 	$HOME/miniconda/bin/conda init zsh

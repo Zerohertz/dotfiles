@@ -7,6 +7,8 @@ brew install kitty
 # -------- Git -------- #
 brew install git
 brew install gnupg
+brew install bat
+brew install delta
 
 # -------- Karabiner -------- #
 brew install --cask karabiner-elements
@@ -24,13 +26,14 @@ brew install koekeishiya/formulae/skhd
 # -------- Dev -------- #
 brew install --cask miniconda
 brew install cmake
-brew install openjdk@17
-brew install openjdk@21
-curl -s "https://get.sdkman.io" | bash
-brew install go
 brew install rust
 brew install rustup
 brew install rust-analyzer
+brew install go
+brew install openjdk@17
+brew install openjdk@21
+curl -s "https://get.sdkman.io" | bash
+brew install uv
 brew install node
 brew install terraform
 brew install --cask docker
@@ -65,10 +68,6 @@ brew install --cask visual-studio-code
 brew install eza
 brew install tmux
 brew install speedtest-cli
-
-# -------- Git -------- #
-brew install bat
-brew install delta
 
 # -------- Util -------- #
 brew install --cask slack

@@ -9,6 +9,10 @@ apt-get install -y golang
 # ----------------------- Java ----------------------- #
 apt-get install -y openjdk-17-jdk openjdk-21-jdk
 
+# ----------------------- Python ----------------------- #
+curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --system
+uv venv /opt/venv --python 3.13 --prompt "main" --seed --color always
+
 # ----------------------- Terraform ----------------------- #
 wget -O- https://apt.releases.hashicorp.com/gpg |
 	gpg --dearmor |
@@ -24,7 +28,3 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 	curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" &&
 	tar xf lazygit.tar.gz lazygit &&
 	install lazygit /usr/local/bin && rm lazygit*
-
-# ----------------------- Git ----------------------- #
-apt-get install -y bat
-apt-get install -y git-delta
