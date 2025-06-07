@@ -145,7 +145,7 @@ alias jj="java Main.java"
 # ----------------------- PYTHON ----------------------- #
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
-source /opt/venv/bin/activate
+source /opt/venv/main/bin/activate
 alias lint="isort . && black ."
 
 # ----------------------- NODE ----------------------- #
