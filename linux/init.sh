@@ -19,6 +19,7 @@ cp -r --no-preserve=mode /mnt/HDD/backup/Zerohertz ./
 
 # ----------------------- Git ----------------------- #
 apt-get install -y bat
+# sudo ln -s /usr/bin/batcat /usr/bin/bat
 apt-get install -y git-delta
 
 # ----------------------- ZSH ----------------------- #
