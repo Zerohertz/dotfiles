@@ -125,7 +125,7 @@ _load_kubectl() {
     source <(kubectl completion zsh)
     compdef kubecolor=kubectl
 }
-_lazy_load _load_kubectl kubectl kubecolor k ku wk kg kgp kc ka kd kdn kdf kex
+_lazy_load _load_kubectl kubectl kubecolor
 if command -v kubectl &> /dev/null; then
     alias k="kubecolor"
     alias ku="kubecolor config use-context"
