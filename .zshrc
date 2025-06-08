@@ -21,6 +21,19 @@ fi
 export SHELL=/bin/zsh
 export EDITOR="nvim"
 
+_lazy_load() {
+    local loader_func="$1"
+    shift
+    local commands=("$@")
+    for cmd in "${commands[@]}"; do
+        eval "$cmd() {
+            unset -f ${commands[*]}
+            $loader_func
+            $cmd \"\$@\"
+        }"
+    done
+}
+
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
 # killall gpg-agent
@@ -101,12 +114,16 @@ alias drmi="docker image prune -a"
 # ----------------------- K8S ----------------------- #
 # alias crmc="sudo crictl ps -a | grep 'Exited' | awk '{print $1}' | xargs -I {} sudo crictl rm {} || true"
 alias crmi="sudo crictl rmi --prune"
-if command -v kubeadm &> /dev/null; then
+_load_kubeadm() {
     source <(kubeadm completion zsh)
-fi
-if command -v kubectl &> /dev/null; then
+}
+_lazy_load _load_kubeadm kubeadm
+_load_kubectl() {
     source <(kubectl completion zsh)
     compdef kubecolor=kubectl
+}
+_lazy_load _load_kubectl kubectl kubecolor k ku wk kg kgp kc ka kd kdn kdf kex
+if command -v kubectl &> /dev/null; then
     alias k="kubecolor"
     alias ku="kubecolor config use-context"
     alias wk="watch kubecolor"
@@ -117,6 +134,7 @@ if command -v kubectl &> /dev/null; then
     alias kd="kubecolor delete"
     alias kdn="kubecolor delete ns"
     alias kdf="kubecolor delete po --force"
+    alias kex="kubecolor exec -it"
 fi
 
 # ----------------------- K9S ----------------------- #
@@ -144,19 +162,24 @@ alias jj="java Main.java"
 
 # ----------------------- PYTHON ----------------------- #
 export UV_PYTHON_INSTALL_DIR=/opt/venv
-if command -v uv &> /dev/null; then
+_load_uv() {
     eval "$(uv generate-shell-completion zsh)"
-fi
-if command -v uvx &> /dev/null; then
+}
+_lazy_load _load_uv uv
+_load_uvx() {
     eval "$(uvx --generate-shell-completion zsh)"
-fi
+}
+_lazy_load _load_uvx uvx
 source /opt/venv/main/bin/activate
 alias lint="isort . && black ."
 
 # ----------------------- NODE ----------------------- #
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+_load_nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+_lazy_load _load_nvm node npm npx nvm
 
 # ----------------------- Neovide ----------------------- #
 # nssh () {
