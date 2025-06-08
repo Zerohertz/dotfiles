@@ -34,7 +34,7 @@ brew install openjdk@17
 brew install openjdk@21
 curl -s "https://get.sdkman.io" | bash
 brew install uv
-brew install node
+brew install nvm
 brew install terraform
 brew install --cask docker
 brew install --cask postman

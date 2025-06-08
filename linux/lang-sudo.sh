@@ -16,6 +16,16 @@ sudo mv $(which uvx) /bin/uvx
 UV_PYTHON_INSTALL_DIR=/opt/venv uv python install 3.13
 UV_PYTHON_INSTALL_DIR=/opt/venv uv venv /opt/venv/main --python 3.13 --prompt "main" --seed --color always
 
+# ----------------------- Node ----------------------- #
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash &&
+	export NVM_DIR="$HOME/.nvm" &&
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" &&
+	nvm install 24 &&
+	npm install -g neovim tree-sitter-cli &&
+	chown -R zerohertz:zerohertz $HOME/.nvm &&
+	mv $HOME/.nvm /home/zerohertz/.nvm &&
+	ln -sf /home/zerohertz/.nvm $HOME/.nvm
+
 # ----------------------- Terraform ----------------------- #
 wget -O- https://apt.releases.hashicorp.com/gpg |
 	gpg --dearmor |
