@@ -20,7 +20,10 @@ if [[ "$OS" == "Linux" ]]; then
 fi
 export SHELL=/bin/zsh
 export EDITOR="nvim"
-
+dotsync() {
+    cd ${HOME}/dotfiles && \
+        git sync
+}
 _lazy_load() {
     local loader_func="$1"
     shift
