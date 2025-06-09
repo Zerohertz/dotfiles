@@ -3,11 +3,11 @@
 ; - https://github.com/simnalamburt/.dotfiles/blob/main/.gitconfig
 
 [user]
-	name = Zerohertz
-	email = ohg3417@gmail.com
-	signingkey = 81F5EC86207A158DEC9F2F4B5F01FCB6F6215F40
+    name = Zerohertz
+    email = ohg3417@gmail.com
+    signingkey = 81F5EC86207A158DEC9F2F4B5F01FCB6F6215F40
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [core]
     editor = nvim
     pager = delta | less -MIR --status-column
@@ -15,42 +15,42 @@
     quotepath = false
     precomposeunicode = true
 [transfer]
-	fsckobjects = true
+    fsckobjects = true
 [receive]
-	fsckObjects = true
+    fsckObjects = true
 [submodule]
-	fetchJobs = 0
-	recurse = true
+    fetchJobs = 0
+    recurse = true
 [help]
-	autocorrect = prompt
+    autocorrect = prompt
 [color]
-	ui = auto
+    ui = auto
 [column]
     ui = never
 [commit]
     verbose = true
-	gpgsign = true
+    gpgsign = true
 [gpg]
-	program = gpg
+    program = gpg
 [credential]
-	helper = store
+    helper = store
 [interactive]
     diffFilter = delta --color-only
 [stash]
-	showPatch = true
+    showPatch = true
 [status]
-	showStash = true
-	submoduleSummary = true
+    showStash = true
+    submoduleSummary = true
 [push]
-	default = simple
+    default = simple
 [fetch]
-	prune = yes
-	prunetags = true
-	fsckobjects = true
+    prune = yes
+    prunetags = true
+    fsckobjects = true
 [pull]
-	rebase = true
+    rebase = true
 [log]
-	date = iso8601
+    date = iso8601
 [branch]
     sort = -committerdate
 [tag]
@@ -68,8 +68,8 @@
     path = nvim
     trustExitCode = true
 [rebase]
-	autostash = true
-	autosquash = true
+    autostash = true
+    autosquash = true
 [delta]
     navigate = true
     dark = true
@@ -134,7 +134,7 @@
 
     ; https://github.com/simnalamburt/.dotfiles/blob/79351eb974043ba510e3f21ecf16c781b67c6858/.gitconfig#L76-L80
     # It shows *all* git commit references in a graph format, including dangling
-	# or unreachable commits (e.g., popped stashes, etc.).
+    # or unreachable commits (e.g., popped stashes, etc.).
     all = "!_() { git log --oneline --graph --reflog $(git fsck --unreachable | perl -ne 'print \"$1\\n\" if /^\\w+ commit ([0-9a-f]+)$/'); }; _"
 
     alias-branch = "!#----------------------------------------------------------;\n\
