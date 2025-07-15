@@ -13,8 +13,8 @@ apt-get install -y openjdk-17-jdk openjdk-21-jdk
 curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --system
 sudo mv $(which uv) /bin/uv
 sudo mv $(which uvx) /bin/uvx
-UV_PYTHON_INSTALL_DIR=/opt/venv uv python install 3.13
-UV_PYTHON_INSTALL_DIR=/opt/venv uv venv /opt/venv/main --python 3.13 --prompt "main" --seed --color always
+UV_PYTHON_INSTALL_DIR=/opt/venv uv python install 3.12
+UV_PYTHON_INSTALL_DIR=/opt/venv uv venv /opt/venv/main --python 3.12 --prompt "main" --seed --color always
 
 # ----------------------- Node ----------------------- #
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash &&
