@@ -46,6 +46,9 @@ brew install mongodb-community-shell
 brew install kubernetes-cli
 brew install kubecolor
 
+npm install -g @anthropic-ai/claude-code
+npm install -g ccusage
+
 # -------- Neovim -------- #
 brew install neovim
 brew install --cask neovide
