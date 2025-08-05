@@ -84,3 +84,19 @@ yabai:
 neovide:
 	@rm -rf $(HOME)/.config/neovide
 	@ln -sf $(PWD)/.config/neovide $(HOME)/.config/neovide
+
+.PHONY: claude
+claude:
+	@npm install -g @anthropic-ai/claude-code
+	@npm install -g ccusage
+	@claude config set -g theme dark-daltonized
+	-@claude mcp add -s user playwright -- npx -y @playwright/mcp@latest
+	-@claude mcp add -s user sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
+	@rm -rf $(HOME)/.claude/settings.json
+	@ln -sf $(PWD)/.claude/settings.json $(HOME)/.claude/settings.json
+	@rm -rf $(HOME)/.claude/commands
+	@ln -sf $(PWD)/.claude/commands $(HOME)/.claude/commands
+	@rm -rf $(HOME)/.claude/hooks
+	@ln -sf $(PWD)/.claude/hooks $(HOME)/.claude/hooks
+	@rm -rf $(HOME)/.claude/agents
+	@ln -sf $(PWD)/.claude/agents $(HOME)/.claude/agents

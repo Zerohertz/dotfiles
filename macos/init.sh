@@ -24,6 +24,8 @@ brew install koekeishiya/formulae/skhd
 # skhd --start-service
 
 # -------- Dev -------- #
+brew install gh
+
 brew install --cask miniconda
 brew install cmake
 brew install rust
@@ -48,6 +50,7 @@ brew install kubecolor
 
 npm install -g @anthropic-ai/claude-code
 npm install -g ccusage
+npm install -g @google/gemini-cli
 
 # -------- Neovim -------- #
 brew install neovim
