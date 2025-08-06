@@ -161,3 +161,5 @@ ctrl - q : yabai -m window --toggle zoom-fullscreen
 
 # toggle sticky(+float), picture-in-picture
 # alt - p : yabai -m window --toggle sticky --toggle pip
+
+ctrl + shift - y : ~/.config/skhd/yabai.sh
