@@ -1,5 +1,36 @@
 #!/bin/bash
 
+# NOTE:
+# 사용 시 settings.json에 아래와 같이 추가
+# {
+#   "hooks": {
+#     "PreToolUse": [
+#       {
+#         "matcher": "Write|Edit|MultiEdit",
+#         "hooks": [
+#           {
+#             "type": "command",
+#             "command": "~/.claude/hooks/python-format-and-check.sh",
+#             "timeout": 30
+#           }
+#         ]
+#       }
+#     ],
+#     "PostToolUse": [
+#       {
+#         "matcher": "Write|Edit|MultiEdit",
+#         "hooks": [
+#           {
+#             "type": "command",
+#             "command": "~/.claude/hooks/python-format-and-check.sh",
+#             "timeout": 30
+#           },
+#         ]
+#       }
+#     ]
+#   }
+# }
+
 INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.filePath // empty')
 
