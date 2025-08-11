@@ -48,6 +48,8 @@ brew install mongodb-community-shell
 brew install kubernetes-cli
 brew install kubecolor
 
+brew install --cask mactex
+
 npm install -g @anthropic-ai/claude-code
 npm install -g ccusage
 npm install -g @google/gemini-cli
