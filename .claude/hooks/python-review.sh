@@ -22,6 +22,7 @@ Be concise, only mention important issues." 2>&1)
 
 # Output review to stderr so Claude can see it
 echo "$REVIEW_OUTPUT" >&2
+echo "$REVIEW_OUTPUT" >>~/.gemini.log
 
 # Exit with code 2 so Claude processes the stderr output
 exit 2
