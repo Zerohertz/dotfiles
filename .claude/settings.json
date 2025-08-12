@@ -38,8 +38,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/python-review.sh",
-            "timeout": 20
+            "command": "~/.claude/hooks/python-check.sh",
+            "timeout": 30
           }
         ]
       },
@@ -48,8 +48,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/python-check.sh",
-            "timeout": 30
+            "command": "~/.claude/hooks/python-review.sh",
+            "timeout": 20
           }
         ]
       }
