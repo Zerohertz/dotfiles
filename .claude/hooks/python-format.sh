@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DISABLE_FORMAT=${DISABLE_FORMAT:-0}
 ENABLE_ISORT=${ENABLE_ISORT:-1}
 ENABLE_BLACK=${ENABLE_BLACK:-1}
 ENABLE_RUFF=${ENABLE_RUFF:-1}
@@ -9,6 +10,11 @@ FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.filePath
 
 # Only process Python files
 if [[ ! "$FILE_PATH" =~ \.py$ ]] || [[ ! -f "$FILE_PATH" ]]; then
+	exit 0
+fi
+
+# Exit if format is disabled
+if [[ "$DISABLE_FORMAT" -eq 1 ]]; then
 	exit 0
 fi
 
