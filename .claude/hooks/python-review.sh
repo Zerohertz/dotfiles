@@ -11,7 +11,7 @@ fi
 echo "🔍 Running Gemini code review for $FILE_PATH..." >&2
 
 # Python-specific review prompt
-REVIEW_OUTPUT=$(gemini -p "@$FILE_PATH" "Review this Python code for:
+REVIEW_OUTPUT=$(gemini -p "@$FILE_PATH Review this Python code for:
 1. Type hints usage and correctness
 2. Exception handling
 3. PEP 8 compliance
