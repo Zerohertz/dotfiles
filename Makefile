@@ -6,7 +6,7 @@ ROOT_HOME := $(shell echo ~root)
 linux: zsh p10k tmux neofetch vim nvim git gpg
 
 .PHONY: macos
-macos: zsh p10k tmux neofetch vim nvim git gpg kitty warp yabai neovide
+macos: zsh p10k tmux neofetch vim nvim git gpg kitty warp yabai neovide kix
 
 .PHONY: zsh
 zsh:
@@ -102,3 +102,8 @@ claude:
 	@ln -sf $(PWD)/.claude/hooks $(HOME)/.claude/hooks
 	@rm -rf $(HOME)/.claude/agents
 	@ln -sf $(PWD)/.claude/agents $(HOME)/.claude/agents
+
+.PHONY: kix
+kix:
+	@curl -L https://github.com/Zerohertz/kix/releases/latest/download/kix-darwin-arm64.tar.gz | tar -xz
+	@sudo mv kix /usr/local/bin/
