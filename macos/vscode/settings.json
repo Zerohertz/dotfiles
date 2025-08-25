@@ -11,22 +11,6 @@
       "after": ["$"]
     },
     {
-      "before": ["ㅗ"],
-      "after": ["h"]
-    },
-    {
-      "before": ["ㅓ"],
-      "after": ["j"]
-    },
-    {
-      "before": ["ㅏ"],
-      "after": ["k"]
-    },
-    {
-      "before": ["ㅣ"],
-      "after": ["l"]
-    },
-    {
       "before": ["<C-h>"],
       "after": ["<C-w>", "h"]
     },
