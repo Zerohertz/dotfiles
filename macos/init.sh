@@ -26,7 +26,6 @@ brew install koekeishiya/formulae/skhd
 # -------- Dev -------- #
 brew install gh
 
-brew install --cask miniconda
 brew install cmake
 brew install rust
 brew install rustup
@@ -34,20 +33,24 @@ brew install rust-analyzer
 brew install go
 brew install openjdk@17
 brew install openjdk@21
-curl -s "https://get.sdkman.io" | bash
+
 brew install uv
+# brew install --cask miniconda
 brew install nvm
+brew install bun
+curl -s "https://get.sdkman.io" | bash
+
 brew install terraform
 brew install --cask docker
-brew install --cask postman
-
-brew install bun
-brew install mysql-client
-brew install mongodb-community-shell
-
 brew install kubernetes-cli
 brew install kubecolor
 
+brew install just
+
+brew install mysql-client
+brew install mongodb-community-shell
+
+brew install --cask postman
 brew install --cask mactex
 
 npm install -g @anthropic-ai/claude-code
