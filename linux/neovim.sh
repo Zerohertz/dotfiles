@@ -6,4 +6,4 @@ wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64
 	apt-get install -y ripgrep fd-find fzf fish luarocks
 
 # ----------------------- USER ----------------------- #
-pip install --no-cache-dir neovim isort black
+pip install --no-cache-dir neovim
