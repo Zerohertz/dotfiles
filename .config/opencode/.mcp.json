@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "Opencode Docs": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://gitmcp.io/sst/opencode"],
+      "env": {}
+    }
+  }
+}

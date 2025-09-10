@@ -6,7 +6,7 @@ ROOT_HOME := $(shell echo ~root)
 linux: zsh p10k tmux neofetch vim nvim git gpg
 
 .PHONY: macos
-macos: zsh p10k tmux neofetch vim nvim git gpg kitty warp yabai neovide kix
+macos: zsh p10k tmux neofetch vim nvim git gpg kitty warp yabai neovide claude opencode kix
 
 .PHONY: zsh
 zsh:
@@ -102,6 +102,12 @@ claude:
 	@ln -sf $(PWD)/.claude/hooks $(HOME)/.claude/hooks
 	@rm -rf $(HOME)/.claude/agents
 	@ln -sf $(PWD)/.claude/agents $(HOME)/.claude/agents
+
+.PHONY: opencode
+opencode:
+	@npm install -g opencode-ai@latest
+	@rm -rf $(HOME)/.config/opencode
+	@ln -sf $(PWD)/.config/opencode $(HOME)/.config/opencode
 
 .PHONY: kix
 kix:

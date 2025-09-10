@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "zerohertz",
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "webfetch": "allow",
+  },
+  "disabled_providers": ["openai", "anthropic", "google", "openrouter"],
+  "provider": {},
+  "model": "github-copilot/claude-sonnet-4",
+  "small_model": "opencode/grok-code",
+  // "small_model": "github-copilot/gpt-5-mini",
+  "mcp": {
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        // WARN: 환경변수를 통한 MCP 설정 불가
+        "Authorization": "Bearer ${GITHUB_TOKEN}",
+      },
+      "enabled": false,
+    },
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking",
+      ],
+      "enabled": true,
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "enabled": true,
+    },
+  },
+}
