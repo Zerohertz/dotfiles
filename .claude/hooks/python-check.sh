@@ -2,9 +2,9 @@
 
 # NOTE:
 # 기본적으로 모두 비활성화 상태
-ENABLE_RUFF=${ENABLE_RUFF:-0}
-ENABLE_TY=${ENABLE_TY:-0}
-ENABLE_PYREFLY=${ENABLE_PYREFLY:-0}
+DISABLE_RUFF=${DISABLE_RUFF:-1}
+DISABLE_TY=${DISABLE_TY:-1}
+DISABLE_PYREFLY=${DISABLE_PYREFLY:-1}
 
 INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.filePath // empty')
@@ -19,7 +19,7 @@ echo "🔧 Running check for Python files..."
 # Run check
 CHECK_SUCCESS=1
 
-if [[ "$ENABLE_RUFF" -eq 1 ]]; then
+if [[ "$DISABLE_RUFF" -eq 0 ]]; then
 	echo "🔧 Running ruff check..."
 	if ! uvx ruff check . --fix; then
 		echo "❌ ruff check failed" >&2
@@ -27,7 +27,7 @@ if [[ "$ENABLE_RUFF" -eq 1 ]]; then
 	fi
 fi
 
-if [[ "$ENABLE_TY" -eq 1 ]]; then
+if [[ "$DISABLE_TY" -eq 0 ]]; then
 	echo "🔧 Running ty check..."
 	if ! uvx ty check .; then
 		echo "❌ ty check failed" >&2
@@ -35,7 +35,7 @@ if [[ "$ENABLE_TY" -eq 1 ]]; then
 	fi
 fi
 
-if [[ "$ENABLE_PYREFLY" -eq 1 ]]; then
+if [[ "$DISABLE_PYREFLY" -eq 0 ]]; then
 	echo "🔧 Running pyrefly check..."
 	if ! uvx pyrefly check; then
 		echo "❌ pyrefly check failed" >&2
