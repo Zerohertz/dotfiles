@@ -7,7 +7,7 @@ INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.filePath // empty')
 
 # Check if review is disabled
-if [[ -n "$DISABLE_REVIEW" ]]; then
+if [[ "$DISABLE_REVIEW" -eq 1 ]]; then
 	exit 0
 fi
 
@@ -43,4 +43,4 @@ echo "$REVIEW_OUTPUT" >&2
 echo "$REVIEW_OUTPUT" >>~/.claude.hooks.python-review.log
 
 # Exit with code 2 so Claude processes the stderr output
-exit 2
+exit 0
