@@ -43,4 +43,4 @@ echo "$REVIEW_OUTPUT" >&2
 echo "$REVIEW_OUTPUT" >>~/.claude.hooks.python-review.log
 
 # Exit with code 2 so Claude processes the stderr output
-exit 0
+exit 2
