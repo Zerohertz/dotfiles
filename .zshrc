@@ -124,12 +124,13 @@ _load_kubeadm() {
 _lazy_load _load_kubeadm kubeadm
 _load_kubectl() {
     source <(kubectl completion zsh)
-    compdef kubecolor=kubectl
 }
 _lazy_load _load_kubectl kubectl kubecolor
 if command -v kubectl &> /dev/null; then
+    compdef kubecolor=kubectl
     alias k="kubecolor"
     alias ku="kubecolor config use-context"
+    alias kgc="kubecolor config get-contexts"
     alias wk="watch kubecolor"
     alias kg="kubecolor get"
     alias kgp="kubecolor get po"
@@ -188,7 +189,7 @@ _load_nvm() {
         [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     fi
 }
-_lazy_load _load_nvm node npm npx nvm nvim kubectl kubecolor claude ccusage opencode
+_lazy_load _load_nvm node npm npx nvm nvim kubectl kubecolor claude ccusage opencode gemini
 
 # ----------------------- Neovide ----------------------- #
 # nssh () {
