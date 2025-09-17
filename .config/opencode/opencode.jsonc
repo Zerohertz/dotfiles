@@ -6,9 +6,10 @@
     "bash": "allow",
     "webfetch": "allow",
   },
-  "disabled_providers": ["openai", "anthropic", "google", "openrouter"],
+  "disabled_providers": ["openai", "anthropic", "openrouter", "github-models"],
   "provider": {},
   "model": "github-copilot/claude-sonnet-4",
+  // "model": "google/gemini-2.5-pro",
   "small_model": "opencode/grok-code",
   // "small_model": "github-copilot/gpt-5-mini",
   "mcp": {
