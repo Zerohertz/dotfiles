@@ -213,7 +213,7 @@ _load_nvm() {
         [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
     fi
 }
-_lazy_load _load_nvm node npm npx nvm nvim kubectl kubecolor claude ccusage opencode gemini
+_lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini
 
 # ----------------------- UFW ----------------------- #
 alias us="sudo ufw status numbered"
@@ -226,14 +226,12 @@ alias ufw-off="sudo ufw disable"
 alias jail="sudo fail2ban-client status sshd"
 
 # ----------------------- Neovide ----------------------- #
-# nssh () {
-#     if [ -z "$1" ] || [ -z "$2" ]; then
-#         echo "Usage: nssh <remote_port> <local_port>"
-#         return 1
-#     fi
-#     bash -c "ssh -L ${2}:localhost:${1} zerohertz nvim --headless --listen localhost:${1}" &
-#     neovide --server=localhost:$2
-# }
+alias nvide="neovide"
+nssh () {
+    local server="${1:-zerohertz}"
+    local port="${2:-6666}"
+    zsh -c "ssh -t -L ${port}:localhost:${port} ${server} nvim --headless --listen localhost:${port}"
+}
 
 # ----------------------- CREDENTIALS ----------------------- #
 if [ -f $HOME/.env ]; then
