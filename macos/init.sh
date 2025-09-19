@@ -61,7 +61,9 @@ npm install -g @google/gemini-cli
 # -------- Neovim -------- #
 brew install neovim
 brew install --cask neovide
-brew install --cask font-hack-nerd-font
+brew install --cask font-jetbrains-mono-nerd-font
+brew install --cask font-sarasa-gothic
+# brew install --cask font-meslo-for-powerlevel10k
 brew install wget
 brew install fd
 brew install ripgrep
