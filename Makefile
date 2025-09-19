@@ -6,7 +6,7 @@ ROOT_HOME := $(shell echo ~root)
 linux: zsh p10k tmux neofetch vim nvim git gpg
 
 .PHONY: macos
-macos: zsh p10k tmux neofetch vim nvim git gpg kitty warp yabai neovide claude opencode kix
+macos: zsh p10k tmux neofetch vim nvim git gpg kitty ghostty yabai neovide claude opencode kix
 
 .PHONY: zsh
 zsh:
@@ -68,10 +68,10 @@ kitty:
 	@rm -rf $(HOME)/.config/kitty
 	@ln -sf $(PWD)/.config/kitty $(HOME)/.config/kitty
 
-.PHONY: warp
-warp:
-	@rm -rf $(HOME)/.warp
-	@ln -sf $(PWD)/.config/warp $(HOME)/.warp
+.PHONY: ghostty
+ghostty:
+	@rm -rf $(HOME)/.config/ghostty
+	@ln -sf $(PWD)/.config/ghostty $(HOME)/.config/ghostty
 
 .PHONY: yabai
 yabai:

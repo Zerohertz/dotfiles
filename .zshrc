@@ -213,6 +213,12 @@ if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
     alias ssh="kitten ssh"
     alias icat="kitten icat"
 fi
+if [[ "$TERM" == "xterm-ghostty" ]] &> /dev/null; then
+    function ssh_init {
+        infocmp -x xterm-ghostty | ssh $1 -- tic -x -
+    }
+fi
+
 
 unalias ls 2>/dev/null
 ls() {

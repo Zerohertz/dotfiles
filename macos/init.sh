@@ -1,8 +1,9 @@
 # -------- Brew -------- #
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# -------- Kitty -------- #
-brew install kitty
+# -------- Term -------- #
+brew install --cask kitty
+brew install --cask ghostty
 
 # -------- Git -------- #
 brew install git
