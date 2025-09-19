@@ -125,7 +125,6 @@ dev() {
         --name $name \
         --platform linux/amd64 \
         -v ./:/workspace \
-        -v ~/.config/github-copilot:/home/zerohertz/.config/github-copilot \
         --rm -d \
         zerohertzkr/dev
 }
