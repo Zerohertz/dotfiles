@@ -49,7 +49,8 @@
 # 
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
-font-family = MesloLGS NF
+font-family = JetBrainsMono Nerd Font Mono
+font-family = Sarasa Term K
 
 font-family-bold = 
 font-family-italic = 
@@ -183,7 +184,7 @@ font-variation-bold-italic =
 # 
 # Changing this configuration at runtime will only affect new terminals,
 # i.e. new windows, tabs, etc.
-font-codepoint-map = 
+# font-codepoint-map = U+E000-U+F8FF=MesloLGS NF
 
 # Draw fonts with a thicker stroke, if supported.
 # This is currently only supported on macOS.
@@ -615,22 +616,22 @@ minimum-contrast = 1
 # 
 # For definitions on the color indices and what they canonically map to,
 # [see this cheat sheet](https://www.ditig.com/256-colors-cheat-sheet).
-palette = 0=#1d1f21
-palette = 1=#cc6666
-palette = 2=#b5bd68
-palette = 3=#f0c674
-palette = 4=#81a2be
-palette = 5=#b294bb
-palette = 6=#8abeb7
-palette = 7=#c5c8c6
-palette = 8=#666666
-palette = 9=#d54e53
-palette = 10=#b9ca4a
-palette = 11=#e7c547
-palette = 12=#7aa6da
-palette = 13=#c397d8
-palette = 14=#70c0b1
-palette = 15=#eaeaea
+palette = 0=#000000
+palette = 1=#cc0403
+palette = 2=#19cb00
+palette = 3=#cecb00
+palette = 4=#800a0a
+palette = 5=#cb1ed1
+palette = 6=#0dcdcd
+palette = 7=#dddddd
+palette = 8=#767676
+palette = 9=#f2201f
+palette = 10=#23fd00
+palette = 11=#fffd00
+palette = 12=#1a8fff
+palette = 13=#fd28ff
+palette = 14=#14ffff
+palette = 15=#ffffff
 palette = 16=#000000
 palette = 17=#00005f
 palette = 18=#000087
@@ -1395,7 +1396,7 @@ x11-instance-name =
 #   * `home` - The home directory of the executing user.
 # 
 #   * `inherit` - The working directory of the launching process.
-working-directory = 
+working-directory = home
 
 # Key bindings. The format is `trigger=action`. Duplicate triggers will
 # overwrite previously set values. The list of actions is available in
@@ -1644,7 +1645,7 @@ keybind = shift+arrow_down=adjust_selection:down
 keybind = super+bracket_left=goto_split:previous
 keybind = super+5=goto_tab:5
 keybind = super+3=goto_tab:3
-keybind = super+a=select_all
+# keybind = super+a=select_all
 keybind = super+arrow_left=text:\x01
 keybind = shift+page_up=adjust_selection:page_up
 keybind = super+0=reset_font_size
@@ -1713,6 +1714,13 @@ keybind = super+digit_5=goto_tab:5
 keybind = super+digit_3=goto_tab:3
 keybind = super+ctrl+arrow_up=resize_split:up,10
 keybind = super+d=new_split:right
+
+# Additional kitty-style keybinds
+keybind = ctrl+shift+left=previous_tab
+keybind = ctrl+shift+right=next_tab
+keybind = super+enter=new_split:down
+keybind = super+a=toggle_split_zoom
+keybind = super+s=goto_split:next
 
 # Horizontal window padding. This applies padding between the terminal cells
 # and the left and right window borders. The value is in points, meaning that
@@ -1805,7 +1813,7 @@ window-vsync = true
 # If true, new windows and tabs will inherit the working directory of the
 # previously focused window. If no window was previously focused, the default
 # working directory will be used (the `working-directory` option).
-window-inherit-working-directory = true
+window-inherit-working-directory = false
 
 # If true, new windows and tabs will inherit the font size of the previously
 # focused window. If no window was previously focused, the default font size
