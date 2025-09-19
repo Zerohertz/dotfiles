@@ -1,7 +1,4 @@
 # ----------------------- ZSH ----------------------- #
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
@@ -12,14 +9,18 @@ plugins=(
     zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-OS=$(uname)
-if [[ "$OS" == "Linux" ]]; then
-    export LANG=en_US.UTF-8
-    export LC_ALL=en_US.UTF-8
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 export SHELL=/bin/zsh
 export EDITOR="nvim"
+export PATH=$PATH:$HOME/.local/bin
+export OS=$(uname)
+export PROMPT_EOL_MARK=
+
+# ----------------------- FUNC ----------------------- #
 dotsync() {
     cd ${HOME}/dotfiles && \
         git sync && \
@@ -37,6 +38,43 @@ _lazy_load() {
         }"
     done
 }
+
+# ----------------------- OS ----------------------- #
+if [[ "$OS" == "Linux" ]]; then
+    export LANG=en_US.UTF-8
+    export LC_ALL=en_US.UTF-8
+    [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
+elif [[ "$OS" == "Darwin" ]]; then
+    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
+
+# ----------------------- TERM ----------------------- #
+if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
+    alias ssh="kitten ssh"
+    alias icat="kitten icat"
+fi
+if [[ "$TERM" == "xterm-ghostty" ]] &> /dev/null; then
+    function ssh_init {
+        infocmp -x xterm-ghostty | ssh $1 -- tic -x -
+    }
+fi
+
+# ----------------------- UTIL ----------------------- #
+unalias ls 2>/dev/null
+ls() {
+    command eza --icons "$@"
+}
+tree() {
+    command eza --tree --icons "$@"
+}
+
+alias rsync="rsync -avhzP -e ssh"
+
+alias tn="tmux new -s"
+alias tl="tmux ls"
+alias ta="tmux attach -t"
 
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
@@ -80,16 +118,6 @@ gpgctl() {
 	esac
 }
 
-# ----------------------- UFW ----------------------- #
-alias us="sudo ufw status numbered"
-alias uall="sudo ufw allow"
-alias udel="sudo ufw delete"
-alias ufw-on="sudo ufw enable"
-alias ufw-off="sudo ufw disable"
-
-# ----------------------- FAIL2BAN ----------------------- #
-alias jail="sudo fail2ban-client status sshd"
-
 # ----------------------- DOCKER ----------------------- #
 dev() {
     local name="${1:-tmp}"
@@ -122,11 +150,11 @@ _load_kubeadm() {
     source <(kubeadm completion zsh)
 }
 _lazy_load _load_kubeadm kubeadm
-_load_kubectl() {
-    source <(kubectl completion zsh)
-}
-_lazy_load _load_kubectl kubectl kubecolor
+# _load_kubectl() {
+# }
+# _lazy_load _load_kubectl kubectl kubecolor
 if command -v kubectl &> /dev/null; then
+    source <(kubectl completion zsh)
     compdef kubecolor=kubectl
     alias k="kubecolor"
     alias ku="kubecolor config use-context"
@@ -141,9 +169,6 @@ if command -v kubectl &> /dev/null; then
     alias kdf="kubecolor delete po --force"
     alias kex="kubecolor exec -it"
 fi
-
-# ----------------------- K9S ----------------------- #
-export PATH=$PATH:$HOME/.local/bin
 
 # ----------------------- C++ ----------------------- #
 alias cpp="g++ main.cpp -std=c++23 -o main"
@@ -176,7 +201,6 @@ _load_uvx() {
 }
 _lazy_load _load_uvx uvx
 source /opt/venv/main/bin/activate
-alias lint="isort . && black ."
 
 # ----------------------- NODE ----------------------- #
 _load_nvm() {
@@ -191,6 +215,16 @@ _load_nvm() {
 }
 _lazy_load _load_nvm node npm npx nvm nvim kubectl kubecolor claude ccusage opencode gemini
 
+# ----------------------- UFW ----------------------- #
+alias us="sudo ufw status numbered"
+alias uall="sudo ufw allow"
+alias udel="sudo ufw delete"
+alias ufw-on="sudo ufw enable"
+alias ufw-off="sudo ufw disable"
+
+# ----------------------- FAIL2BAN ----------------------- #
+alias jail="sudo fail2ban-client status sshd"
+
 # ----------------------- Neovide ----------------------- #
 # nssh () {
 #     if [ -z "$1" ] || [ -z "$2" ]; then
@@ -200,41 +234,6 @@ _lazy_load _load_nvm node npm npx nvm nvim kubectl kubecolor claude ccusage open
 #     bash -c "ssh -L ${2}:localhost:${1} zerohertz nvim --headless --listen localhost:${1}" &
 #     neovide --server=localhost:$2
 # }
-
-# ----------------------- ETC ----------------------- #
-if [[ "$OS" == "Linux" ]]; then
-    [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
-elif [[ "$OS" == "Darwin" ]]; then
-    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-fi
-if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
-    alias ssh="kitten ssh"
-    alias icat="kitten icat"
-fi
-if [[ "$TERM" == "xterm-ghostty" ]] &> /dev/null; then
-    function ssh_init {
-        infocmp -x xterm-ghostty | ssh $1 -- tic -x -
-    }
-fi
-
-
-unalias ls 2>/dev/null
-ls() {
-    command eza --icons "$@"
-}
-tree() {
-    command eza --tree --icons "$@"
-}
-
-alias rsync="rsync -avhzP -e ssh"
-
-alias tn="tmux new -s"
-alias tl="tmux ls"
-alias ta="tmux attach -t"
-
-export PROMPT_EOL_MARK=
 
 # ----------------------- CREDENTIALS ----------------------- #
 if [ -f $HOME/.env ]; then
