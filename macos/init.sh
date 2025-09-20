@@ -83,15 +83,14 @@ brew install --cask visual-studio-code
 brew install eza
 brew install tmux
 brew install speedtest-cli
-
-# -------- Util -------- #
-brew install --cask slack
-brew install --cask discord
-brew install --cask nextcloud
-
-# -------- Etc -------- #
 brew install autojump
 brew install neofetch
-brew install bpytop
+brew install btop
+
+# -------- Util -------- #
+brew install --cask betterdisplay
+brew install --cask nextcloud
+brew install --cask slack
+brew install --cask discord
 
 # defaults write -g ApplePressAndHoldEnabled -bool false
