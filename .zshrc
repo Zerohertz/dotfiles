@@ -121,12 +121,15 @@ gpgctl() {
 # ----------------------- DOCKER ----------------------- #
 dev() {
     local name="${1:-tmp}"
+    local port="${2:-6666}"
     docker run \
         --name $name \
         --platform linux/amd64 \
+        -p ${port}:${port} \
         -v ./:/workspace \
-        --rm -d \
-        zerohertzkr/dev
+        -d \
+        zerohertzkr/dev \
+        "while true; do echo \"Starting Neovim server on port ${port}...\"; nvim --headless --listen 0.0.0.0:${port}; echo 'Neovim server exited. Restarting...'; sleep 1; done"
 }
 de() {
     local name=$1
