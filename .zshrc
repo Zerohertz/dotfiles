@@ -232,7 +232,7 @@ alias nvide="neovide"
 nssh () {
     local server="${1:-zerohertz}"
     local port="${2:-6666}"
-    zsh -c "ssh -t -L ${port}:localhost:${port} ${server} nvim --headless --listen localhost:${port}"
+    ssh -t -L ${port}:localhost:${port} ${server} nvim --headless --listen localhost:${port}
 }
 
 # ----------------------- CREDENTIALS ----------------------- #
