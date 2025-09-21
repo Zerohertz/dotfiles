@@ -89,6 +89,7 @@ brew install btop
 
 # -------- Util -------- #
 brew install --cask betterdisplay
+brew install --cask twingate
 brew install --cask nextcloud
 brew install --cask slack
 brew install --cask discord
