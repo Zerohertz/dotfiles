@@ -14,10 +14,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export SHELL=/bin/zsh
-export EDITOR="nvim"
-export PATH=$PATH:$HOME/.local/bin
-export OS=$(uname)
 export PROMPT_EOL_MARK=
 
 # ----------------------- FUNC ----------------------- #
@@ -26,28 +22,13 @@ dotsync() {
         git sync && \
 		cd -
 }
-_lazy_load() {
-    local loader_func="$1"
-    shift
-    local commands=("$@")
-    for cmd in "${commands[@]}"; do
-        eval "$cmd() {
-            unset -f ${commands[*]}
-            $loader_func
-            $cmd \"\$@\"
-        }"
-    done
-}
 
 # ----------------------- OS ----------------------- #
 if [[ "$OS" == "Linux" ]]; then
-    export LANG=en_US.UTF-8
-    export LC_ALL=en_US.UTF-8
     [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 elif [[ "$OS" == "Darwin" ]]; then
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
     code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
 # ----------------------- TERM ----------------------- #
@@ -176,46 +157,14 @@ fi
 alias cpp="g++ main.cpp -std=c++23 -o main"
 
 # ----------------------- Go ----------------------- #
-export GOROOT=$(go env GOROOT)
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias gg="go run main.go"
 
 # ----------------------- JAVA ----------------------- #
-if [[ "$OS" == "Linux" ]]; then
-    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
-    export PATH=$JAVA_HOME/bin:$PATH
-elif [[ "$OS" == "Darwin" ]]; then
-    export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
-    export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
-    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
-fi
 alias jj="java Main.java"
 
 # ----------------------- PYTHON ----------------------- #
-export UV_PYTHON_INSTALL_DIR=/opt/venv
-_load_uv() {
-    eval "$(uv generate-shell-completion zsh)"
-}
-_lazy_load _load_uv uv
-_load_uvx() {
-    eval "$(uvx --generate-shell-completion zsh)"
-}
-_lazy_load _load_uvx uvx
-source /opt/venv/main/bin/activate
 
 # ----------------------- NODE ----------------------- #
-_load_nvm() {
-    export NVM_DIR="$HOME/.nvm"
-    if [[ "$OS" == "Linux" ]]; then
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    elif [[ "$OS" == "Darwin" ]]; then
-        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-    fi
-}
-_lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini
 
 # ----------------------- UFW ----------------------- #
 alias us="sudo ufw status numbered"
@@ -234,11 +183,6 @@ nssh () {
     local port="${2:-6666}"
     ssh -t -L ${port}:localhost:${port} ${server} nvim --headless --listen localhost:${port}
 }
-
-# ----------------------- CREDENTIALS ----------------------- #
-if [ -f $HOME/.env ]; then
-  source $HOME/.env
-fi
 
 # ----------------------- SDKMAN ----------------------- #
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

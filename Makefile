@@ -10,8 +10,10 @@ macos: zsh p10k tmux neofetch vim nvim git gpg kitty ghostty yabai neovide claud
 
 .PHONY: zsh
 zsh:
+	@ln -sf $(PWD)/.zshenv $(HOME)/.zshenv
 	@ln -sf $(PWD)/.zshrc $(HOME)/.zshrc
 ifneq ($(USER), root)
+	@sudo ln -sf $(PWD)/.zshenv $(ROOT_HOME)/.zshenv
 	@sudo ln -sf $(PWD)/.zshrc $(ROOT_HOME)/.zshrc
 	@sudo rm -rf $(ROOT_HOME)/.oh-my-zsh
 	@sudo cp -r $(HOME)/.oh-my-zsh $(ROOT_HOME)/.oh-my-zsh
