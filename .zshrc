@@ -136,7 +136,7 @@ _lazy_load _load_kubeadm kubeadm
 # _load_kubectl() {
 # }
 # _lazy_load _load_kubectl kubectl kubecolor
-if command -v kubectl &> /dev/null; then
+if type -p kubectl &> /dev/null; then
     source <(kubectl completion zsh)
     compdef kubecolor=kubectl
     alias k="kubecolor"
