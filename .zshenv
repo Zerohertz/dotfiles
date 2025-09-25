@@ -52,7 +52,9 @@ _load_uvx() {
     eval "$(uvx --generate-shell-completion zsh)"
 }
 _lazy_load _load_uvx uvx
-source /opt/venv/main/bin/activate
+if [[ -f "${UV_PYTHON_INSTALL_DIR}/main/bin/activate" ]]; then
+    source "${UV_PYTHON_INSTALL_DIR}/main/bin/activate"
+fi
 
 # ----------------------- NODE ----------------------- #
 _load_nvm() {

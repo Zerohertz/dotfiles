@@ -163,6 +163,9 @@ alias gg="go run main.go"
 alias jj="java Main.java"
 
 # ----------------------- PYTHON ----------------------- #
+if [[ -f "${UV_PYTHON_INSTALL_DIR}/main/bin/activate" && "$(which python3)" != "${UV_PYTHON_INSTALL_DIR}/main/bin/python3"  ]]; then
+    source "${UV_PYTHON_INSTALL_DIR}/main/bin/activate"
+fi
 
 # ----------------------- NODE ----------------------- #
 
