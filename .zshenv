@@ -24,6 +24,7 @@ if [[ "$OS" == "Linux" ]]; then
     export LC_ALL=en_US.UTF-8
 elif [[ "$OS" == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    export PATH="/usr/local/bin:$PATH"
     export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
