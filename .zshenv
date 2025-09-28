@@ -1,7 +1,9 @@
 # ----------------------- ZSH ----------------------- #
+typeset -U path
+
+path=("$HOME/.local/bin" $path)
 export SHELL=/bin/zsh
 export EDITOR="nvim"
-export PATH=$PATH:$HOME/.local/bin
 export OS=$(uname)
 
 # ----------------------- FUNC ----------------------- #
@@ -23,22 +25,21 @@ if [[ "$OS" == "Linux" ]]; then
     export LANG=en_US.UTF-8
     export LC_ALL=en_US.UTF-8
 elif [[ "$OS" == "Darwin" ]]; then
+    path=("/usr/local/bin" "/opt/homebrew/opt/libpq/bin" $path)
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    export PATH="/usr/local/bin:$PATH"
-    export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 fi
 
 # ----------------------- Go ----------------------- #
 export GOROOT=$(go env GOROOT)
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+path=("$GOROOT/bin" "$GOPATH/bin" $path)
 
 # ----------------------- JAVA ----------------------- #
 if [[ "$OS" == "Linux" ]]; then
     export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
-    export PATH=$JAVA_HOME/bin:$PATH
+    path=("$JAVA_HOME/bin" $path)
 elif [[ "$OS" == "Darwin" ]]; then
-    export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+    path=("/opt/homebrew/opt/openjdk@21/bin" $path)
     export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
     export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
 fi
