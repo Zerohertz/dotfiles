@@ -66,7 +66,7 @@ $ make neovide
 $ docker run \
         --name $name \
         --platform linux/amd64 \
-        -v ./:/home/zerohertz/workspace \
+        -v ./:/workspace \
         --rm -d \
         zerohertzkr/dev
 $ docker exec -it $name zsh
