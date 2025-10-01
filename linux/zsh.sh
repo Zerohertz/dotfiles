@@ -2,7 +2,15 @@ rm -f ~/.zshrc
 rm -f ~/.p10k.zsh
 rm -rf ~/.oh-my-zsh
 
-sudo apt-get install zsh -y
+if [ "$EUID" -eq 0 ]; then
+	apt-get update &&
+		apt-get install zsh -y &&
+		apt-get clean && rm -rf /var/lib/apt/lists/*
+else
+	sudo apt-get update &&
+		sudo apt-get install zsh -y &&
+		sudo apt-get clean && rm -rf /var/lib/apt/lists/*
+fi
 
 echo "n" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
