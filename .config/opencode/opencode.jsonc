@@ -16,15 +16,6 @@
   // "small_model": "github-copilot/gpt-5-mini",
   // "small_model": "opencode/grok-code",
   "mcp": {
-    "github": {
-      "type": "remote",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        // WARN: 환경변수를 통한 MCP 설정 불가
-        "Authorization": "Bearer ${GITHUB_TOKEN}",
-      },
-      "enabled": false,
-    },
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
@@ -39,10 +30,19 @@
       ],
       "enabled": true,
     },
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp@latest"],
-      "enabled": true,
-    },
+    // "github": {
+    //   "type": "remote",
+    //   "url": "https://api.githubcopilot.com/mcp/",
+    //   "headers": {
+    //     // WARN: 환경변수를 통한 MCP 설정 불가
+    //     "Authorization": "Bearer ${GITHUB_TOKEN}",
+    //   },
+    //   "enabled": false,
+    // },
+    // "playwright": {
+    //   "type": "local",
+    //   "command": ["npx", "-y", "@playwright/mcp@latest"],
+    //   "enabled": true,
+    // },
   },
 }
