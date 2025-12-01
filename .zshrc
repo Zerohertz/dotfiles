@@ -57,6 +57,11 @@ alias tn="tmux new -s"
 alias tl="tmux ls"
 alias ta="tmux attach -t"
 
+skg() {
+    local name=$1
+    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_${1} -N "" -C "zerohertz@${1}"
+}
+
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
 # killall gpg-agent
