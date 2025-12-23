@@ -28,6 +28,7 @@ brew install koekeishiya/formulae/skhd
 brew install gh
 
 brew install cmake
+brew install llvm
 brew install rust
 brew install rustup
 brew install rust-analyzer
