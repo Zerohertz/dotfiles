@@ -29,6 +29,11 @@ elif [[ "$OS" == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
+# ----------------------- C++ ----------------------- #
+if [[ "$OS" == "Darwin" ]]; then
+    path=("${HOMEBREW_PREFIX}/opt/llvm/bin" $path)
+fi
+
 # ----------------------- Go ----------------------- #
 export GOROOT=$(go env GOROOT)
 export GOPATH=$HOME/go
