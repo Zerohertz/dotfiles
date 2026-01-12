@@ -125,6 +125,8 @@ shift + ctrl - l : yabai -m space --focus next
 
 # focus monitor
 ctrl + cmd - h : yabai -m display --focus west
+ctrl + cmd - j : yabai -m display --focus south
+ctrl + cmd - k : yabai -m display --focus north
 ctrl + cmd - l : yabai -m display --focus east
 # ctrl + alt - z  : yabai -m display --focus prev
 # ctrl + alt - 3  : yabai -m display --focus 3
