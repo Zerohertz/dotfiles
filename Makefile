@@ -110,6 +110,7 @@ opencode:
 	@npm install -g opencode-ai@latest
 	@rm -rf $(HOME)/.config/opencode
 	@ln -sf $(PWD)/.config/opencode $(HOME)/.config/opencode
+	@npx oh-my-opencode install
 
 .PHONY: kix
 kix:
