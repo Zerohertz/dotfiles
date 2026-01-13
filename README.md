@@ -35,7 +35,7 @@
 <!-- markdownlint-disable -->
 
 ```bash
-$ make all
+$ make linux
 ```
 
 <!-- markdownlint-enable -->
@@ -47,9 +47,7 @@ $ make all
 <!-- markdownlint-disable -->
 
 ```bash
-$ make kitty
-$ make all
-$ make neovide
+$ make macos
 ```
 
 <!-- markdownlint-enable -->
