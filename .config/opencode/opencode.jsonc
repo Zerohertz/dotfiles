@@ -1,13 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["oh-my-opencode", "opencode-antigravity-auth@1.2.8"],
+  "plugin": ["oh-my-opencode", "opencode-antigravity-auth@1.3.1"],
   "theme": "zerohertz",
   "permission": {
     "edit": "allow",
     "bash": "allow",
     "webfetch": "allow",
   },
-  "disabled_providers": ["openai", "anthropic", "openrouter", "github-models"],
+  "disabled_providers": [
+    "openai",
+    "anthropic",
+    "openrouter",
+    "github-models",
+    "github-copilot-enterprise",
+  ],
   "model": "github-copilot/claude-sonnet-4.5",
   // "model": "github-copilot/gpt-5-codex",
   // "model": "github-copilot/claude-sonnet-4",
