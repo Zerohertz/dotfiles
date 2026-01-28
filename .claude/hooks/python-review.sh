@@ -28,10 +28,12 @@ Be concise, only mention important issues."
 
 # Check for environment variable to determine which tool to use
 if [[ "$CC_REVIEWER" == "gemini" ]]; then
-	COMMAND="gemini -m gemini-2.5-flash -p"
+	COMMAND="gemini -m gemini-2.5-pro -p"
 	TOOL_NAME="Gemini"
 else
-	COMMAND="opencode run -m opencode/grok-code"
+	# COMMAND="opencode run -m opencode/grok-code"
+	# COMMAND="opencode run -m github-copilot/gpt-5-mini"
+	COMMAND="opencode run -m google/antigravity-gemini-3-pro-high"
 	TOOL_NAME="OpenCode"
 fi
 
