@@ -95,6 +95,7 @@ brew install --cask betterdisplay
 brew install --cask openvpn-connect
 brew install --cask twingate
 brew install --cask nextcloud
+brew install --cask google-drive
 brew install --cask slack
 brew install --cask discord
 
