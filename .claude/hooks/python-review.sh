@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DISABLE_REVIEW=${DISABLE_REVIEW:-0}
-CC_REVIEWER=${CC_REVIEWER:-opencode}
+CC_REVIEWER=${CC_REVIEWER:-gemini}
 
 INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.filePath // empty')
@@ -28,7 +28,7 @@ Be concise, only mention important issues."
 
 # Check for environment variable to determine which tool to use
 if [[ "$CC_REVIEWER" == "gemini" ]]; then
-	COMMAND="gemini -m gemini-2.5-pro -p"
+	COMMAND="gemini -m gemini-3.1-pro-preview -p"
 	TOOL_NAME="Gemini"
 else
 	# COMMAND="opencode run -m opencode/grok-code"
