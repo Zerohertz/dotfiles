@@ -104,6 +104,8 @@ claude:
 	@ln -sf $(PWD)/.claude/hooks $(HOME)/.claude/hooks
 	@rm -rf $(HOME)/.claude/agents
 	@ln -sf $(PWD)/.claude/agents $(HOME)/.claude/agents
+	# @rm -rf $(HOME)/.claude/teams
+	# @ln -sf $(PWD)/.claude/teams $(HOME)/.claude/teams
 
 .PHONY: opencode
 opencode:
