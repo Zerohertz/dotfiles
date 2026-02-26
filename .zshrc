@@ -54,6 +54,7 @@ tree() {
 alias rsync="rsync -avhzP -e ssh"
 
 alias tn="tmux new -s"
+alias tc="tmux -CC new -d -s"
 alias tl="tmux ls"
 alias ta="tmux attach -t"
 
