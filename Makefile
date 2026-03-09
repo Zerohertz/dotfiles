@@ -91,7 +91,7 @@ neovide:
 claude:
 	@npm install -g @anthropic-ai/claude-code
 	@npm install -g ccusage
-	@claude config set -g theme dark-daltonized
+	@claude config set theme dark-daltonized
 	-@claude mcp add -s user -t http context7 https://mcp.context7.com/mcp
 	-@claude mcp add -s user sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
 	# -@claude mcp add -s user -t http github https://api.githubcopilot.com/mcp/ -H "Authorization: Bearer $(GITHUB_TOKEN)"
