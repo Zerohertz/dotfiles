@@ -68,6 +68,7 @@ brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-sarasa-gothic
 brew install --cask font-meslo-for-powerlevel10k
 brew install wget
+brew install tree-sitter
 brew install fd
 brew install ripgrep
 brew install lazygit
