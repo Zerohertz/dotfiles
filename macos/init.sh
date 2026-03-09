@@ -17,8 +17,10 @@ brew install --cask karabiner-elements
 # -------- Yabai -------- #
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
+
+# NOTE: https://github.com/asmvik/yabai/wiki/Disabling-System-Integrity-Protection
 # csrutil enable --without fs --without debug --without nvram
-# csrutil disable --with kext --with dtrace --with basesystem
+#
 # sudo nvram boot-args=-arm64e_preview_abi
 # echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai
 # yabai --start-service
