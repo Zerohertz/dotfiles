@@ -70,7 +70,6 @@ brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-sarasa-gothic
 brew install --cask font-meslo-for-powerlevel10k
 brew install wget
-brew install tree-sitter
 brew install fd
 brew install ripgrep
 brew install lazygit
@@ -80,7 +79,7 @@ brew install imagemagick
 brew install gs
 brew install mmdbctl
 pip install neovim isort black pylatexenc
-npm install -g neovim
+npm install -g neovim tree-sitter-cli
 
 # -------- VSCode -------- #
 brew install --cask visual-studio-code
