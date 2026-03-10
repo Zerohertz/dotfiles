@@ -1,18 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": ["oh-my-opencode"],
-  "theme": "zerohertz",
   "permission": {
     "edit": "allow",
     "bash": "allow",
     "webfetch": "allow",
   },
   "disabled_providers": [
-    "openai",
     "anthropic",
     "openrouter",
     "github-models",
     "github-copilot-enterprise",
+    // "openai",
   ],
   "model": "github-copilot/claude-sonnet-4.6",
   // "model": "github-copilot/claude-sonnet-4.6",
