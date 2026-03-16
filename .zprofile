@@ -15,6 +15,8 @@ if command -v go &>/dev/null; then
     path=("$GOROOT/bin" "$GOPATH/bin" $path)
 fi
 
+# ----------------------- RUST ----------------------- #
+
 # ----------------------- JAVA ----------------------- #
 if [[ "$OS" == "Linux" ]] && command -v java &>/dev/null; then
     export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
