@@ -1,4 +1,7 @@
 # ----------------------- ZSH ----------------------- #
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
@@ -9,14 +12,23 @@ plugins=(
     zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PROMPT_EOL_MARK=
 
 # ----------------------- FUNC ----------------------- #
+_lazy_load() {
+    local loader_func="$1"
+    shift
+    local commands=("$@")
+    for cmd in "${commands[@]}"; do
+        eval "$cmd() {
+            unset -f ${commands[*]}
+            $loader_func
+            $cmd \"\$@\"
+        }"
+    done
+}
 dotsync() {
     cd ${HOME}/dotfiles && \
         git sync && \
@@ -28,7 +40,7 @@ if [[ "$OS" == "Linux" ]]; then
     [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 elif [[ "$OS" == "Darwin" ]]; then
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@" ;}
 fi
 
 # ----------------------- TERM ----------------------- #
@@ -36,7 +48,7 @@ if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
     alias ssh="kitten ssh"
     alias icat="kitten icat"
 fi
-if [[ "$TERM" == "xterm-ghostty" ]] &> /dev/null; then
+if [[ "$TERM" == "xterm-ghostty" ]]; then
     function ssh_init {
         infocmp -x xterm-ghostty | ssh $1 -- tic -x -
     }
@@ -60,8 +72,40 @@ alias ta="tmux attach -t"
 
 skg() {
     local name=$1
-    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_${1} -N "" -C "zerohertz@${1}"
+    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_${name} -N "" -C "zerohertz@${name}"
 }
+
+# ----------------------- C++ ----------------------- #
+alias cpp="g++ main.cpp -std=c++23 -o main"
+
+# ----------------------- Go ----------------------- #
+alias gg="go run main.go"
+
+# ----------------------- JAVA ----------------------- #
+alias jj="java Main.java"
+
+# ----------------------- PYTHON ----------------------- #
+_load_uv() {
+    eval "$(uv generate-shell-completion zsh)"
+}
+_lazy_load _load_uv uv
+_load_uvx() {
+    eval "$(uvx --generate-shell-completion zsh)"
+}
+_lazy_load _load_uvx uvx
+
+# ----------------------- NODE ----------------------- #
+_load_nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    if [[ "$OS" == "Linux" ]]; then
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    elif [[ "$OS" == "Darwin" ]]; then
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    fi
+}
+_lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini
 
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
@@ -159,22 +203,6 @@ if type -p kubectl &> /dev/null; then
     alias kex="kubecolor exec -it"
 fi
 
-# ----------------------- C++ ----------------------- #
-alias cpp="g++ main.cpp -std=c++23 -o main"
-
-# ----------------------- Go ----------------------- #
-alias gg="go run main.go"
-
-# ----------------------- JAVA ----------------------- #
-alias jj="java Main.java"
-
-# ----------------------- PYTHON ----------------------- #
-if [[ -f "${UV_PYTHON_INSTALL_DIR}/main/bin/activate" && "$(which python3)" != "${UV_PYTHON_INSTALL_DIR}/main/bin/python3"  ]]; then
-    source "${UV_PYTHON_INSTALL_DIR}/main/bin/activate"
-fi
-
-# ----------------------- NODE ----------------------- #
-
 # ----------------------- UFW ----------------------- #
 alias us="sudo ufw status numbered"
 alias uall="sudo ufw allow"
@@ -198,4 +226,9 @@ nssh () {
 if [[ $EUID -ne 0 ]]; then
     export SDKMAN_DIR="$HOME/.sdkman"
     [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
+# ----------------------- CREDENTIALS ----------------------- #
+if [ -f $HOME/.env ]; then
+  source $HOME/.env
 fi
