@@ -1,6 +1,7 @@
 # ----------------------- ZSH ----------------------- #
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-$(print -P '%n').zsh" ]]; then
+    # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-$(print -P '%n').zsh"
 fi
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -30,9 +31,9 @@ _lazy_load() {
     done
 }
 dotsync() {
-    cd ${HOME}/dotfiles && \
-        git sync && \
-		cd -
+    cd ${HOME}/dotfiles &&
+        git sync &&
+        cd -
 }
 
 # ----------------------- OS ----------------------- #
@@ -40,11 +41,11 @@ if [[ "$OS" == "Linux" ]]; then
     [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 elif [[ "$OS" == "Darwin" ]]; then
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-    code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@" ;}
+    code() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"; }
 fi
 
 # ----------------------- TERM ----------------------- #
-if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &> /dev/null; then
+if [[ "$TERM" == "xterm-kitty" ]] && command -v kitten &>/dev/null; then
     alias ssh="kitten ssh"
     alias icat="kitten icat"
 fi
@@ -98,11 +99,11 @@ _lazy_load _load_uvx uvx
 _load_nvm() {
     export NVM_DIR="$HOME/.nvm"
     if [[ "$OS" == "Linux" ]]; then
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
     elif [[ "$OS" == "Darwin" ]]; then
-        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+        [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
     fi
 }
 _lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini
@@ -112,41 +113,41 @@ export GPG_TTY=$TTY
 # killall gpg-agent
 # gpg-agent --daemon
 gpgctl() {
-	local act=$1
+    local act=$1
     local key=$2
-	case "$act" in
-	ls)
-        echo "===================== Public Key ====================="
-        gpg --list-keys
-        echo "===================== Secret Key ====================="
-        gpg --list-secret-keys
-		;;
-	delete)
-        echo "===================== Public Key ====================="
-        gpg --delete-keys $key
-        echo "===================== Secret Key ====================="
-        gpg --delete-secret-keys $key
-		;;
-	export)
-        echo "===================== Public Key ====================="
-        gpg --export $key > gpg-public-key.gpg
-        echo "===================== Secret Key ====================="
-        gpg --export-secret-keys $key > gpg-secret-key.gpg
-        echo "===================== Ownertrust ====================="
-        gpg --export-ownertrust > gpg-trust-settings.txt
-		;;
-	import)
-        echo "===================== Public Key ====================="
-        gpg --import gpg-public-key.gpg
-        echo "===================== Secret Key ====================="
-        gpg --import gpg-secret-key.gpg
-        echo "===================== Ownertrust ====================="
-        gpg --import-ownertrust gpg-trust-settings.txt
-		;;
-	*)
-		echo "Wrong usage"
-		;;
-	esac
+    case "$act" in
+        ls)
+            echo "===================== Public Key ====================="
+            gpg --list-keys
+            echo "===================== Secret Key ====================="
+            gpg --list-secret-keys
+            ;;
+        delete)
+            echo "===================== Public Key ====================="
+            gpg --delete-keys $key
+            echo "===================== Secret Key ====================="
+            gpg --delete-secret-keys $key
+            ;;
+        export)
+            echo "===================== Public Key ====================="
+            gpg --export $key >gpg-public-key.gpg
+            echo "===================== Secret Key ====================="
+            gpg --export-secret-keys $key >gpg-secret-key.gpg
+            echo "===================== Ownertrust ====================="
+            gpg --export-ownertrust >gpg-trust-settings.txt
+            ;;
+        import)
+            echo "===================== Public Key ====================="
+            gpg --import gpg-public-key.gpg
+            echo "===================== Secret Key ====================="
+            gpg --import gpg-secret-key.gpg
+            echo "===================== Ownertrust ====================="
+            gpg --import-ownertrust gpg-trust-settings.txt
+            ;;
+        *)
+            echo "Wrong usage"
+            ;;
+    esac
 }
 
 # ----------------------- DOCKER ----------------------- #
@@ -186,7 +187,7 @@ _lazy_load _load_kubeadm kubeadm
 # _load_kubectl() {
 # }
 # _lazy_load _load_kubectl kubectl kubecolor
-if type -p kubectl &> /dev/null; then
+if type -p kubectl &>/dev/null; then
     source <(kubectl completion zsh)
     compdef kubecolor=kubectl
     alias k="kubecolor"
@@ -215,7 +216,7 @@ alias jail="sudo fail2ban-client status sshd"
 
 # ----------------------- Neovide ----------------------- #
 alias nvide="neovide"
-nssh () {
+nssh() {
     local server="${1:-zerohertz}"
     local port="${2:-6666}"
     ssh -t -L ${port}:localhost:${port} ${server} nvim --headless --listen localhost:${port}
@@ -230,5 +231,5 @@ fi
 
 # ----------------------- CREDENTIALS ----------------------- #
 if [ -f $HOME/.env ]; then
-  source $HOME/.env
+    source $HOME/.env
 fi

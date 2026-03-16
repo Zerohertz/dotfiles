@@ -1,0 +1,20 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: check-symlinks
+      - id: detect-private-key
+  - repo: local
+    hooks:
+      # NOTE: go install mvdan.cc/sh/v3/cmd/shfmt@latest
+      - id: shfmt
+        name: shfmt (zsh)
+        entry: shfmt -w -ln zsh -i 4 -ci
+        language: system
+        files: (^|/)\.(zshenv|zprofile|zshrc)$

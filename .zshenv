@@ -8,8 +8,8 @@ export OS=$(uname)
 
 # ----------------------- OS ----------------------- #
 if [[ "$OS" == "Linux" ]]; then
-  export LANG="en_US.UTF-8"
-  export LC_ALL="en_US.UTF-8"
+    export LANG="en_US.UTF-8"
+    export LC_ALL="en_US.UTF-8"
 fi
 
 # ----------------------- C++ ----------------------- #
