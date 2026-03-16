@@ -18,7 +18,7 @@ fi
 export GOPATH=$HOME/go
 
 # ----------------------- RUST ----------------------- #
-. "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # ----------------------- JAVA ----------------------- #
 
