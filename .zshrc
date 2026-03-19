@@ -108,7 +108,7 @@ _load_nvm() {
         [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
     fi
 }
-_lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini
+_lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini omc
 
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
