@@ -37,6 +37,10 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "node $HOME/.claude/plugins/marketplaces/claude-hud/dist/index.js"
+  },
   "enabledPlugins": {
     "claude-hud@claude-hud": true,
     "oh-my-claudecode@omc": true
