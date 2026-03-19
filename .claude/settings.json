@@ -38,15 +38,22 @@
     ]
   },
   "effortLevel": "high",
+  "enabledPlugins": {
+    "claude-hud@claude-hud": true,
+    "oh-my-claudecode@omc": true
+  },
   "extraKnownMarketplaces": {
     "claude-hud": {
       "source": {
         "source": "github",
         "repo": "jarrodwatts/claude-hud"
       }
+    },
+    "omc": {
+      "source": {
+        "source": "github",
+        "repo": "Yeachan-Heo/oh-my-claudecode"
+      }
     }
-  },
-  "enabledPlugins": {
-    "claude-hud@claude-hud": true
   }
 }

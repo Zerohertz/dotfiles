@@ -108,6 +108,9 @@ claude:
 	-@claude plugin marketplace add jarrodwatts/claude-hud
 	-@claude plugin install claude-hud@claude-hud
 	# /claude-hud:setup
+	-@claude plugin marketplace add Yeachan-Heo/oh-my-claudecode
+	-@claude plugin install oh-my-claudecode
+	@ln -sf $(PWD)/.claude/.omc-config.json $(HOME)/.claude/.omc-config.json
 	# NOTE:
 	# @claude config set theme dark-daltonized
 	# -@claude mcp add -s user -t http github https://api.githubcopilot.com/mcp/ -H "Authorization: Bearer $(GITHUB_TOKEN)"
