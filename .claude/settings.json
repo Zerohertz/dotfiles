@@ -37,5 +37,16 @@
       }
     ]
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "extraKnownMarketplaces": {
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "claude-hud@claude-hud": true
+  }
 }

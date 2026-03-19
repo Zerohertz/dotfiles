@@ -93,11 +93,8 @@ neovide:
 claude:
 	@npm install -g @anthropic-ai/claude-code
 	@npm install -g ccusage
-	@claude config set theme dark-daltonized
 	-@claude mcp add -s user -t http context7 https://mcp.context7.com/mcp
 	-@claude mcp add -s user sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
-	# -@claude mcp add -s user -t http github https://api.githubcopilot.com/mcp/ -H "Authorization: Bearer $(GITHUB_TOKEN)"
-	# -@claude mcp add -s user playwright -- npx -y @playwright/mcp@latest
 	@rm -rf $(HOME)/.claude/settings.json
 	@ln -sf $(PWD)/.claude/settings.json $(HOME)/.claude/settings.json
 	@rm -rf $(HOME)/.claude/commands
@@ -108,6 +105,13 @@ claude:
 	@ln -sf $(PWD)/.claude/agents $(HOME)/.claude/agents
 	# @rm -rf $(HOME)/.claude/teams
 	# @ln -sf $(PWD)/.claude/teams $(HOME)/.claude/teams
+	-@claude plugin marketplace add jarrodwatts/claude-hud
+	-@claude plugin install claude-hud@claude-hud
+	# /claude-hud:setup
+	# NOTE:
+	# @claude config set theme dark-daltonized
+	# -@claude mcp add -s user -t http github https://api.githubcopilot.com/mcp/ -H "Authorization: Bearer $(GITHUB_TOKEN)"
+	# -@claude mcp add -s user playwright -- npx -y @playwright/mcp@latest
 
 .PHONY: opencode
 opencode:
