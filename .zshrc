@@ -70,6 +70,7 @@ alias tn="tmux new -s"
 alias tc="tmux -CC new -d -s"
 alias tl="tmux ls"
 alias ta="tmux attach -t"
+alias tk="tmux killw -t"
 
 skg() {
     local name=$1
