@@ -9,6 +9,7 @@ plugins=(
     git
     docker
     tmux
+    kubectl
     zsh-syntax-highlighting
     zsh-autosuggestions
 )
@@ -109,7 +110,7 @@ _load_nvm() {
         [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
     fi
 }
-_lazy_load _load_nvm node npm npx nvm nvim neovide kubectl kubecolor claude ccusage opencode gemini omc
+_lazy_load _load_nvm node npm npx nvm nvim neovide claude omc ccusage opencode gemini
 
 # ----------------------- GPG ----------------------- #
 export GPG_TTY=$TTY
@@ -187,11 +188,7 @@ _load_kubeadm() {
     source <(kubeadm completion zsh)
 }
 _lazy_load _load_kubeadm kubeadm
-# _load_kubectl() {
-# }
-# _lazy_load _load_kubectl kubectl kubecolor
-if type -p kubectl &>/dev/null; then
-    source <(kubectl completion zsh)
+if (( $+commands[kubectl] )); then
     compdef kubecolor=kubectl
     alias k="kubecolor"
     alias ku="kubecolor config use-context"
