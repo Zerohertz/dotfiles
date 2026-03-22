@@ -1,3 +1,6 @@
+# ----------------------- ZSH ----------------------- #
+path=("$HOME/.local/bin" $path)
+
 # ----------------------- OS ----------------------- #
 if [[ "$OS" == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -16,15 +19,16 @@ if command -v go &>/dev/null; then
 fi
 
 # ----------------------- RUST ----------------------- #
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # ----------------------- JAVA ----------------------- #
 if [[ "$OS" == "Linux" ]] && command -v java &>/dev/null; then
-    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+    export JAVA_HOME=$(dirname $(dirname $(realpath $(which java))))
     path=("$JAVA_HOME/bin" $path)
 elif [[ "$OS" == "Darwin" ]] && [[ -d "/opt/homebrew/opt/openjdk@21" ]]; then
     path=("/opt/homebrew/opt/openjdk@21/bin" $path)
     export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
-    export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+    export JAVA_HOME=$(dirname $(dirname $(realpath $(which java))))
 fi
 
 # ----------------------- PYTHON ----------------------- #

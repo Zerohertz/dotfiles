@@ -230,6 +230,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # ----------------------- CREDENTIALS ----------------------- #
-if [ -f $HOME/.env ]; then
-    source $HOME/.env
+if [ -f "$HOME/.env" ]; then
+    source "$HOME/.env"
 fi

@@ -1,8 +1,6 @@
 # ----------------------- ZSH ----------------------- #
 typeset -U path
 
-path=("$HOME/.local/bin" $path)
-export SHELL=/bin/zsh
 export EDITOR="nvim"
 export OS=$(uname)
 
@@ -18,7 +16,6 @@ fi
 export GOPATH=$HOME/go
 
 # ----------------------- RUST ----------------------- #
-[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # ----------------------- JAVA ----------------------- #
 
