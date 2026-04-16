@@ -10,16 +10,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/python-format.sh",
-            "timeout": 30
-          }
-        ]
-      },
-      {
-        "matcher": "Write|Edit|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
             "command": "~/.claude/hooks/python-check.sh",
             "timeout": 30
           }
