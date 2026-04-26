@@ -36,3 +36,5 @@ keybind = super+s=goto_split:next
 
 window-inherit-working-directory = false
 confirm-close-surface = false
+
+desktop-notifications = true

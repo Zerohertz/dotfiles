@@ -59,9 +59,10 @@ brew install --cask mactex
 
 npm install -g @anthropic-ai/claude-code
 npm install -g ccusage
-npm install -g @google/gemini-cli
+npm install -g oh-my-claude-sisyphus@latest
 npm install -g opencode-ai@latest
 npx oh-my-opencode install
+npm install -g @google/gemini-cli
 
 # -------- Neovim -------- #
 brew install neovim
