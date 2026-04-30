@@ -65,7 +65,7 @@ npx oh-my-opencode install
 npm install -g @google/gemini-cli
 
 # -------- Neovim -------- #
-brew install neovim
+bash <(curl -fsSL https://raw.githubusercontent.com/Zerohertz/nvim/refs/heads/main/scripts/install.sh)
 brew install --cask neovide
 brew install --cask font-jetbrains-mono-nerd-font
 brew install --cask font-sarasa-gothic
