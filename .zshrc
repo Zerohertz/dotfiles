@@ -10,13 +10,19 @@ plugins=(
     docker
     tmux
     kubectl
-    zsh-syntax-highlighting
     zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PROMPT_EOL_MARK=
+
+if command -v fzf &>/dev/null; then
+    export FZF_COMPLETION_TRIGGER=';'
+    source <(fzf --zsh)
+    bindkey '^F' fzf-file-widget
+fi
 
 # ----------------------- FUNC ----------------------- #
 _lazy_load() {
