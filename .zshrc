@@ -24,6 +24,11 @@ if command -v fzf &>/dev/null; then
     bindkey '^F' fzf-file-widget
 fi
 
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word
+
 # ----------------------- FUNC ----------------------- #
 _lazy_load() {
     local loader_func="$1"
