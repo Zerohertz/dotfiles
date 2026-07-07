@@ -2,8 +2,8 @@
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
   },
+  "model": "opus[1m]",
   "hooks": {
-    "PreToolUse": [],
     "PostToolUse": [
       {
         "matcher": "Write|Edit|MultiEdit",
@@ -71,7 +71,10 @@
       }
     }
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
   "theme": "dark-daltonized",
   "autoCompactEnabled": false
 }
