@@ -8,6 +8,6 @@
     "shutdownTimeoutMs": 15000
   },
   "setupCompleted": "2026-03-19T23:21:12+09:00",
-  "setupVersion": "v4.15.6",
+  "setupVersion": "v5.5.0",
   "nodeBinary": "/Users/zerohertz/.nvm/versions/node/v24.1.0/bin/node"
 }
